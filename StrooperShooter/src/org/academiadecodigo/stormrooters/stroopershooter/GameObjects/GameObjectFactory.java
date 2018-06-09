@@ -6,7 +6,6 @@ public class GameObjectFactory {
 
     public static GameObjects createObject() {
 
-        return Math.random() > 0.3 ? new Target(10, position): new Box(10, position, BOX_ARMOUR);
-        return null;
+        return Math.random() > 0.3 ? new Target(): new Box();
     }
 }

@@ -2,7 +2,9 @@ package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 public interface Destroyable {
 
-    boolean hitted();
+    boolean isHitted();
 
     void hit();
+
+    int getPoints();
 }

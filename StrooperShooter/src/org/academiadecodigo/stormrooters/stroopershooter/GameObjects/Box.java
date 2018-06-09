@@ -28,7 +28,7 @@ public abstract class Box extends GameObjects {
 
             System.out.println("[BOX] box explode \n");
 
-            isHitted();
+            setHitted();
         }
     }
 }

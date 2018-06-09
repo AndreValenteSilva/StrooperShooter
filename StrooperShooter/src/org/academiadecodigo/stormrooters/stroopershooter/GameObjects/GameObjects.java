@@ -2,7 +2,7 @@ package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.Position;
 
-public abstract class GameObjects implements Destroyable{
+public abstract class GameObjects implements Destroyable {
 
 
     private boolean hitted;
@@ -12,7 +12,13 @@ public abstract class GameObjects implements Destroyable{
         this.hitted = false;
     }
 
-    public void isHitted() {
+    public boolean isHitted() {
+
+        return hitted;
+
+    }
+
+    public void setHitted() {
         this.hitted = true;
     }
 }

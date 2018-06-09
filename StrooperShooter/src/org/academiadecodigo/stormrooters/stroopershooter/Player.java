@@ -7,7 +7,6 @@ public class Player {
     private String name;
     private int score;
     private Weapon sniper;
-    private GameObjects objects;
 
     public Player(String name, Weapon weapon) {
 
@@ -19,7 +18,7 @@ public class Player {
         // mouseHandler logic
     }
 
-    public void shootWeapon() {
+    public void shootWeapon(GameObjects objects) {
 
         if (sniper.getBulletNumber() > 0) {
             sniper.shoot(objects);
@@ -35,8 +34,8 @@ public class Player {
 
 
     //SETTER
-    public void setScore(int score) {
+    public void setScore(int points) {
 
-        this.score = score;
+        this.score += points;
     }
 }

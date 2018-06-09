@@ -31,7 +31,10 @@ public class Game {
 
     public void start() {
 
-        player.shootWeapon();
+        player.shootWeapon(gameObjects);
+        if (gameObjects.isHitted()) {
+            player.setScore(givePoints());
+        }
     }
 
     public GameObjects createObjects(int numberObjects) {
