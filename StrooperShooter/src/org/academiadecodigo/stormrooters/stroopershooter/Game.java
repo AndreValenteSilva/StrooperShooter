@@ -3,6 +3,7 @@ package org.academiadecodigo.stormrooters.stroopershooter;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
+import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Target;
 
 import java.util.Iterator;
 
@@ -12,6 +13,7 @@ public class Game {
     private Player player;
     private Grid grid;
     private GameObjects gameObjects;
+    private GameObjects objects;
 
     public static final int BULLET_DAMAGE = 1;
 
@@ -24,36 +26,32 @@ public class Game {
 
     public void init() {
         grid = new SimplegfxGrid(124, 86);
+        objects = new Target (grid.makeGridPosition(20, 20));
     }
 
     public void start() {
-
     }
 
     public GameObjects createObjects(int numberObjects) {
-
         return null;
     }
 
 
     public int givePoints() {
-
         return gameObjects.getPoints();
     }
 
 
     public void moveTarget() {
-
     }
 
 
     public String gameOver() {
-
         return "Game Over";
     }
 
 
-    //NESTED CLASS NESTED CLASS NESTED CLASS  ---> Not sure about this class, perhaps, shall be in a different window??
+/*    //NESTED CLASS NESTED CLASS NESTED CLASS  ---> Not sure about this class, perhaps, shall be in a different window??
 
     public class LinkedList<T> implements Iterable<T> {
 
@@ -144,6 +142,6 @@ public class Game {
 
         }
 
-    }
+    }*/
 }
 

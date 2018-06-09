@@ -1,5 +1,6 @@
 package org.academiadecodigo.stormrooters.stroopershooter.Field.Position;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 
@@ -21,6 +22,7 @@ public class SimplegfxGridPosition implements GridPosition {
         this.col = col;
         this.row = row;
         this.grid = grid;
+        this.object = new Rectangle();
     }
 
     @Override
@@ -41,7 +43,8 @@ public class SimplegfxGridPosition implements GridPosition {
 
     @Override
     public void show() {
-        object.draw();
+        object.fill();
+        object.setColor(Color.BLUE);
     }
 
     @Override

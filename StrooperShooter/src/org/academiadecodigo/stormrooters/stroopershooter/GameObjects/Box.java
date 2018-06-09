@@ -1,5 +1,6 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.Position;
 
 public class Box extends GameObjects {
@@ -7,9 +8,9 @@ public class Box extends GameObjects {
     private int timer; //var type might need to be changed
     private int hitCounter;
 
-    public Box(int size, Position position) {
+    public Box(GridPosition gridPosition) {
 
-        super(size, position);
+        super(gridPosition);
         this.hitCounter = 0;
     }
 

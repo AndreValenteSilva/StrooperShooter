@@ -1,18 +1,19 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.Position;
 
 public abstract class GameObjects {
 
     private int size; //not really sure if size it's going to be an int
-    private Position position;
+    private GridPosition position;
     private boolean hitted;
     private int points;
 
-    public GameObjects(int size, Position position) {
+    public GameObjects(GridPosition gridPosition) {
 
-        this.size = size;
-        this.position = position;
+        //this.size = size;
+        this.position = gridPosition;
     }
 
     public boolean isHitted() {
