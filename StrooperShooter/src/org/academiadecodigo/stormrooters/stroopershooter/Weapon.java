@@ -4,17 +4,29 @@ import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects
 
 public class Weapon {
 
-    private int bullets;
+    private int bulletNumber;   //might be a final property?
 
-    public Weapon() {
 
+    public Weapon(int bulletNumber) {
+
+        this.bulletNumber = bulletNumber;
     }
+
 
     public void shoot(GameObjects objects) {
-        bullets--;
+
+        bulletNumber--;
     }
 
+
     public void reload() {
-        bullets += 5;
+
+        bulletNumber += 5;
+    }
+
+
+    public int getBulletNumber() {
+
+        return bulletNumber;
     }
 }
