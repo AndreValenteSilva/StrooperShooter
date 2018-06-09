@@ -81,7 +81,7 @@ public class Player {
 
             int x = (int) e.getX();
             int y = (int) e.getY();
-            shootWeapon();
+            shootWeapon(objects);
         }
 
         @Override
