@@ -31,4 +31,9 @@ public abstract class Box extends GameObjects {
             setHitted();
         }
     }
+
+    @Override
+    public int getPoints() {
+        return 0;
+    }
 }

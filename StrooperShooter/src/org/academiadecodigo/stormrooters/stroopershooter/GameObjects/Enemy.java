@@ -1,8 +1,9 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
-public class Enemy extends Target{
+public class Enemy extends Target {
 
     private int points;
+    private int fuckedUpCounter = 0;
 
     public Enemy() {
         this.points = 5;
@@ -10,6 +11,10 @@ public class Enemy extends Target{
 
     @Override
     public int getPoints() {
-        return this.points;
+        if (fuckedUpCounter < 1) {
+            fuckedUpCounter++;
+            return this.points;
+        }
+        return 0;
     }
 }

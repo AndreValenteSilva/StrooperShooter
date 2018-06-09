@@ -2,6 +2,7 @@ package org.academiadecodigo.stormrooters.stroopershooter;
 
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
+import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 
 import java.util.Iterator;
@@ -18,11 +19,11 @@ public class Game {
     public static final int BULLET_DAMAGE = 1;
 
 
-    public Game(int numberObjects) {
-        this.player = new Player("Batata", sniper);
+    public Game(int objectsNumber) {
         this.sniper = new Weapon();
-        this.gameObjects = createObjects(numberObjects);
-
+        //this.gameObjects = new Enemy();
+        this.gameObjects = createObjects(objectsNumber);
+        this.player = new Player("Batata", sniper);
     }
 
     public void init() {
@@ -35,6 +36,12 @@ public class Game {
         if (gameObjects.isHitted()) {
             player.setScore(givePoints());
         }
+
+        player.shootWeapon(gameObjects);
+        if (gameObjects.isHitted()) {
+            player.setScore(givePoints());
+        }
+
     }
 
     public GameObjects createObjects(int numberObjects) {
@@ -58,7 +65,6 @@ public class Game {
 
         return "Game Over";
     }
-
 
 
 }

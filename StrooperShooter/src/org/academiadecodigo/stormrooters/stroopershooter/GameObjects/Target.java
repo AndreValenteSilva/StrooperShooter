@@ -2,7 +2,6 @@ package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 public abstract class Target extends GameObjects {
 
-    private int points;
 
     public Target() {
 
@@ -13,5 +12,6 @@ public abstract class Target extends GameObjects {
     public void hit() {
 
         setHitted();
+
     }
 }

@@ -4,8 +4,10 @@ public class GameObjectFactory {
 
     public static final int BOX_ARMOUR = 2;
 
-    public static GameObjects createObject() {
+    public static GameObjects createObject(int objectsNumber) {
 
-        return Math.random() > 0.3 ? new Target(): new Box();
+
+
+        return null; //Math.random() > 0.3 ? new Target(): new Box();
     }
 }
