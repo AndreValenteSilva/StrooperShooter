@@ -2,6 +2,7 @@ package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 public abstract class Box extends GameObjects {
 
+
     private int timer; //var type might need to be changed
     private int hitCounter;
 

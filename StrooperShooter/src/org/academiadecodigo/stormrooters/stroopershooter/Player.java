@@ -16,7 +16,7 @@ public class Player {
     }
 
     public void moveSight() {
-        //mouseTracker
+        // mouseHandler logic
     }
 
     public void shootWeapon() {
@@ -32,7 +32,6 @@ public class Player {
         //receives input from keyboard
         sniper.reload();
     }
-
 
 
     //SETTER

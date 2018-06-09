@@ -1,6 +1,7 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Field;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 
 import java.util.Iterator;
@@ -9,10 +10,10 @@ public class Game {
 
     private int timer; //the type must be changed
     private Player player;
+
+    private Grid grid;
     private GameObjects gameObjects;
     private Weapon sniper;
-
-    private Field field;
 
     public static final int BULLET_DAMAGE = 1;
 
@@ -24,13 +25,11 @@ public class Game {
 
     }
 
-
-    public void start() {
-
+    public void init() {
+        grid = new SimplegfxGrid(124, 86);
     }
 
-
-    public void init() {
+    public void start() {
 
     }
 
@@ -51,7 +50,7 @@ public class Game {
     }
 
 
-    public String gamaOver() {
+    public String gameOver() {
 
         return "Game Over";
     }
