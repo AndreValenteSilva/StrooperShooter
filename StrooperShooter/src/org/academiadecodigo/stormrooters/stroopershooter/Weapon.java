@@ -1,6 +1,5 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
-import com.sun.tools.internal.xjc.util.MimeTypeRange;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 
 public class Weapon {
@@ -17,6 +16,8 @@ public class Weapon {
     public void shoot(GameObjects objects) {
 
         bulletNumber--;
+        objects.hit();
+
     }
 
 

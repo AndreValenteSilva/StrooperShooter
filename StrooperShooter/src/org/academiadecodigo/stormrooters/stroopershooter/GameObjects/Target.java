@@ -10,10 +10,11 @@ public abstract class Target extends GameObjects {
 
     public abstract int getPoints();
 
+
     public void hit() {
 
         getPoints();
 
-        setHitted();
+        isHitted();
     }
 }

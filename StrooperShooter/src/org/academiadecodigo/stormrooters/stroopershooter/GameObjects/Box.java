@@ -21,14 +21,14 @@ public abstract class Box extends GameObjects {
 
             hitCounter++;
 
-            System.out.println("[BOX] Box was hit: " + hitCounter + "\n");
+            System.out.println("[BOX] Box was isHitted: " + hitCounter + "\n");
 
         } else {
             getBonus();
 
             System.out.println("[BOX] box explode \n");
 
-            setHitted();
+            isHitted();
         }
     }
 }
