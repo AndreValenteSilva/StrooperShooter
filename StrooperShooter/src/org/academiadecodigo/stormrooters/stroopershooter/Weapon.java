@@ -1,11 +1,12 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
+import com.sun.tools.internal.xjc.util.MimeTypeRange;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 
 public class Weapon {
 
     private int bulletNumber;   //might be a final property?
-
+    private Sight sight;
 
     public Weapon(int bulletNumber) {
 
@@ -22,6 +23,7 @@ public class Weapon {
     public void reload() {
 
         bulletNumber += 5;
+
     }
 
 

@@ -31,7 +31,6 @@ public class Player {
     }
 
 
-
     //SETTER
     public void setScore(int score) {
 

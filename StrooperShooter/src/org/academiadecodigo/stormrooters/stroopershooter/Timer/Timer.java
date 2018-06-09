@@ -1,4 +1,4 @@
-package org.academiadecodigo.stormrooters.stroopershooter;
+package org.academiadecodigo.stormrooters.stroopershooter.Timer;
 
 public class Timer {
 
