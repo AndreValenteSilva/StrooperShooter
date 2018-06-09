@@ -20,5 +20,5 @@ public abstract class GameObjects {
 
     public void setHitted() {
         this.hitted = true;
-    };
+    }
 }

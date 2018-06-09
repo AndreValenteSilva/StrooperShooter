@@ -9,9 +9,10 @@ public class Game {
 
     private int timer; //the type must be changed
     private Player player;
-    private Field field;
     private GameObjects gameObjects;
     private Weapon sniper;
+
+    private Field field;
 
     public static final int BULLET_DAMAGE = 1;
 
@@ -45,7 +46,7 @@ public class Game {
     }
 
 
-    public void moovTarget() {
+    public void moveTarget() {
 
     }
 
