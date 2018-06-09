@@ -21,8 +21,8 @@ public class Game {
 
     public Game(int objectsNumber) {
         this.sniper = new Weapon();
-        //this.gameObjects = new Enemy();
-        this.gameObjects = createObjects(objectsNumber);
+        this.gameObjects = new Enemy();
+        //this.gameObjects = createObjects(objectsNumber);
         this.player = new Player("Batata", sniper);
     }
 
