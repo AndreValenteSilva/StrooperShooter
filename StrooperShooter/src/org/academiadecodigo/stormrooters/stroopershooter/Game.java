@@ -18,17 +18,11 @@ public class Game {
     public static final int BULLET_DAMAGE = 1;
 
 
-    public Game(int numberObjects) {
+    public Game() {
         this.player = new Player("Batata", sniper);
         this.sniper = new Weapon();
-        this.gameObjects = createObjects(numberObjects);
-    }
-
-    public Game(int col, int row) {
-
-        grid = new SimplegfxGrid(col, row);
         //this.gameObjects = createObjects(numberObjects);
-
+        grid = new SimplegfxGrid(124, 86);
     }
 
     public void init() {

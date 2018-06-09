@@ -19,6 +19,7 @@ public class SimplegfxGridPosition implements GridPosition {
         int x = grid.columnToX(getCol());
         int y = grid.rowToY(getRow());
 
+        System.out.println(x + " " + y);
         this.object = new Rectangle(x, y, 75, 75);
 
         show();
