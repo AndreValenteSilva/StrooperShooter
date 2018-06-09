@@ -30,6 +30,7 @@ public class Player {
 
         //receives input from keyboard
         sniper.reload();
+
     }
 
 
@@ -37,5 +38,6 @@ public class Player {
     public void setScore(int points) {
 
         this.score += points;
+        System.out.println("score: " + score);
     }
 }

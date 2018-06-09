@@ -8,6 +8,7 @@ public abstract class Target extends GameObjects {
     private int points;
     private Rectangle target;
 
+
     public Target(GridPosition gridPosition) {
 
         super(gridPosition);
@@ -18,5 +19,6 @@ public abstract class Target extends GameObjects {
 
     public void hit() {
         setHitted();
+
     }
 }

@@ -14,6 +14,7 @@ public class Weapon {
     public void shoot(GameObjects objects) {
 
         bulletNumber--;
+        System.out.println("bullets: " + bulletNumber);
         objects.hit();
 
     }

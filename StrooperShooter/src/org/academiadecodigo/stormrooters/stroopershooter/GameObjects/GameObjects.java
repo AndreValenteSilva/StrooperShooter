@@ -27,6 +27,7 @@ public abstract class GameObjects implements Destroyable {
 
     public void setHitted() {
         this.hitted = true;
+
     }
 
     public GridPosition getPos() {
