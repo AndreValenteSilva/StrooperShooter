@@ -19,13 +19,12 @@ public class SimplegfxGrid implements Grid {
     public SimplegfxGrid(int cols, int rows) {
         this.cols = cols;
         this.rows = rows;
-        grid = new Rectangle(PADDING, PADDING, cols * CELLSIZE, rows * CELLSIZE);
-        init();
     }
 
     @Override
     public void init() {
-        grid.draw();
+        this.grid = new Rectangle(PADDING, PADDING, cols * CELLSIZE, rows * CELLSIZE);
+        this.grid.draw();
     }
 
     @Override // creates a random SimplegfxGridPosition
@@ -48,5 +47,13 @@ public class SimplegfxGrid implements Grid {
 
     public int getRows() {
         return rows;
+    }
+
+    public int rowToY(int row) {
+        return PADDING + CELLSIZE * row;
+    }
+
+    public int columnToX(int column) {
+        return PADDING + CELLSIZE * column;
     }
 }
