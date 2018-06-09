@@ -1,15 +1,16 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
-public abstract class Box extends GameObjects {
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
 
+public abstract class Box extends GameObjects {
 
     private int timer; //var type might need to be changed
     private int hitCounter;
 
-    public Box() {
+    public Box(GridPosition gridPosition) {
+        super(gridPosition);
         this.hitCounter = 0;
     }
-
 
     //gives bonus when destroyed
     public abstract int getBonus();

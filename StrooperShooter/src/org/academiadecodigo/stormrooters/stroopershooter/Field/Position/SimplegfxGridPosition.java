@@ -1,5 +1,6 @@
 package org.academiadecodigo.stormrooters.stroopershooter.Field.Position;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 
@@ -14,13 +15,24 @@ public class SimplegfxGridPosition implements GridPosition {
         this.col = (int) (Math.random() * grid.getCols());
         this.row = (int) (Math.random() * grid.getRows());
         this.grid = grid;
-        this.object = new Rectangle(col * grid.getCellsize(), row * grid.getCellsize(), grid.getCellsize(), grid.getCellsize());
+
+        int x = grid.columnToX(getCol());
+        int y = grid.rowToY(getRow());
+
+        this.object = new Rectangle(x, y, 75, 75);
+
+        show();
     }
 
     public SimplegfxGridPosition(int col, int row, SimplegfxGrid grid) {
         this.col = col;
         this.row = row;
         this.grid = grid;
+
+        int x = grid.columnToX(getCol());
+        int y = grid.rowToY(getRow());
+
+        this.object = new Rectangle(x, y, grid.getCellsize(), grid.getCellsize());
     }
 
     @Override
@@ -29,19 +41,18 @@ public class SimplegfxGridPosition implements GridPosition {
         this.row = row;
     }
 
-/*    @Override
     public int getCol() {
         return col;
     }
 
-    @Override
     public int getRow() {
         return row;
-    }*/
+    }
 
     @Override
     public void show() {
-        object.draw();
+        object.fill();
+        object.setColor(Color.BLUE);
     }
 
     @Override
@@ -53,4 +64,5 @@ public class SimplegfxGridPosition implements GridPosition {
     public boolean equals(GridPosition position) {
         return false;
     }
+
 }
