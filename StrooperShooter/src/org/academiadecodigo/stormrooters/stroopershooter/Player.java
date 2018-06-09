@@ -17,6 +17,8 @@ public class Player {
 
     public void moveSight() {
 
+        
+
     }
 
     public void shootWeapon() {
