@@ -1,38 +1,34 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position;
+public abstract class Box extends GameObjects {
 
-public class Box extends GameObjects {
 
     private int timer; //var type might need to be changed
     private int hitCounter;
 
-    public Box(int size, Position position) {
-
-        super(size, position);
+    public Box() {
         this.hitCounter = 0;
     }
 
-    public void giveTime() { //kind of a time setter??
 
-        //time.delayTime;
-
-    }
+    //gives bonus when destroyed
+    public abstract int getBonus();
 
 
-    @Override
-    public boolean isHitted() {
+    public void hit() {
 
         if (hitCounter <= GameObjectFactory.BOX_ARMOUR) {
 
             hitCounter++;
-            giveTime();
+
             System.out.println("[BOX] Box was hit: " + hitCounter + "\n");
+
+        } else {
+            getBonus();
+
+            System.out.println("[BOX] box explode \n");
+
+            setHitted();
         }
-
-        hitCounter = 0;
-        System.out.println("[BOX] box explode \n");
-
-        return super.isHitted();
     }
 }

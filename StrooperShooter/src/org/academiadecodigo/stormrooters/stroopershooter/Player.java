@@ -20,27 +20,29 @@ public class Player {
     private int Y;
     private boolean reload;
 
-    public Player(String name) {
+    public Player(String name, Weapon weapon) {
 
         this.name = name;
-        this.sniper = new Weapon(sniper.getBulletNumber());
+        this.sniper = new Weapon();
         this.reload = false;
-
     }
 
     public void moveSight() {
-
+        // mouseHandler logic
     }
 
     public void shootWeapon() {
 
-        if (sniper.getBulletNumber() == 0) {
-
-            sniper.reload();
+        if (sniper.getBulletNumber() > 0) {
+            sniper.shoot(objects);
         }
+        // else say reload
+    }
 
-        sniper.shoot(objects);
+    public void reload() {
 
+        //receives input from keyboard
+        sniper.reload();
     }
 
     public int getX() {
@@ -50,7 +52,6 @@ public class Player {
     public int getY() {
         return Y;
     }
-
 
     //SETTER
     public void setScore(int score) {

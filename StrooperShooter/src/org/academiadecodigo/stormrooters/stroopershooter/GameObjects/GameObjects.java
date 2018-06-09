@@ -1,29 +1,24 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.Position;
 
 public abstract class GameObjects {
 
-    private int size; //not really sure if size it's going to be an int
-    private Position position;
+
+    // gameobject doesnt need to know its position in the field, rigth?
+    // only needs to know if hitted
+
+    //private int size; //not really sure if size it's going to be an int
+    //private Position position;
+
     private boolean hitted;
-    private int points;
 
-    public GameObjects(int size, Position position) {
+    public GameObjects() {
 
-        this.size = size;
-        this.position = position;
+        this.hitted = false;
     }
 
-    public boolean isHitted() {
-
-        return hitted = true;
-    }
-
-    //GETTER
-
-    public int getPoints() {
-
-        return points;
+    public void setHitted() {
+        this.hitted = true;
     }
 }
