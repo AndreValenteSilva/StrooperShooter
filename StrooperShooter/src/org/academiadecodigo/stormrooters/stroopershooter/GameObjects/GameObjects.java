@@ -1,6 +1,6 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.Position;
 
 public abstract class GameObjects {
 
