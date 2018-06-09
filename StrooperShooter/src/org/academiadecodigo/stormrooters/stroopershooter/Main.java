@@ -4,9 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-       Game test = new Game(3);
+       Game test = new Game(124, 86);
 
        test.init();
+
 
     }
 }

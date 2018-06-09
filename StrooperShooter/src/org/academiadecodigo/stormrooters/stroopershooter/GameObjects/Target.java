@@ -1,5 +1,6 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
 
@@ -10,8 +11,9 @@ public class Target extends GameObjects {
     public Target(GridPosition gridPosition) {
 
         super(gridPosition);
-        target = new Rectangle(50, 50, 40, 20);
+        /*target = new Rectangle(g, 40, 30);
         target.fill();
+        target.setColor(Color.BLUE);*/
     }
 
     @Override

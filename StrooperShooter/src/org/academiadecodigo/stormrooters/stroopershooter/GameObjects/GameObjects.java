@@ -1,7 +1,6 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.Position;
 
 public abstract class GameObjects {
 
@@ -11,7 +10,6 @@ public abstract class GameObjects {
     private int points;
 
     public GameObjects(GridPosition gridPosition) {
-
         //this.size = size;
         this.position = gridPosition;
     }
@@ -26,5 +24,9 @@ public abstract class GameObjects {
     public int getPoints() {
 
         return points;
+    }
+
+    public GridPosition getPos() {
+        return this.position;
     }
 }
