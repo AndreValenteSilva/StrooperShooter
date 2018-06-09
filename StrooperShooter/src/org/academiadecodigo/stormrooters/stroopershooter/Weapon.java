@@ -29,4 +29,6 @@ public class Weapon {
 
         return bulletNumber;
     }
+
+    public class WeaponControl implements
 }
