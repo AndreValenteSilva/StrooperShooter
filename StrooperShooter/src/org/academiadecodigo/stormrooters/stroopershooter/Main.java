@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-       Game test = new Game(4);
+       Game test = new Game(5);
 
        test.init();
 

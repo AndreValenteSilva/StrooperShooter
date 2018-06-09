@@ -12,7 +12,7 @@ public class Game {
     private Grid grid;
     private GameObjects gameObjects;
     private Weapon sniper;
-    private Enemy objects;
+    private Enemy[] objects;
     private boolean gameInit;
 
     public static final int BULLET_DAMAGE = 1;
@@ -22,18 +22,18 @@ public class Game {
         this.sniper = new Weapon();
         grid = new SimplegfxGrid(124, 86);
         //this.gameObjects = new Enemy();
-        this.gameObjects = createObjects(objectsNumber);
+        //this.gameObjects = createObjects(objectsNumber);
         this.player = new Player("Batata", sniper);
-
+        this.objects = new Enemy[objectsNumber];
     }
 
     public void init() {
 
         grid.init();
 
-        for (int i = 0; i < 5; i++) {
-            objects = new Enemy(grid.makeGridPosition());
-            System.out.println(objects.getPos().toString());
+        for (int i = 0; i < objects.length; i++) {
+            objects[i] = new Enemy(grid.makeGridPosition());
+            //System.out.println(objects.getPos().toString());
         }
 
         start();
@@ -44,25 +44,24 @@ public class Game {
         //objects = new Target(grid.makeGridPosition(20, 20));
         System.out.println("out while");
 
-        player.shootWeapon(gameObjects);
-        if (gameObjects.isHitted()) {
-            player.setScore(givePoints());
+        player.shootWeapon(objects[0]);
+        if (objects[0].isHitted()) {
+            player.setScore(givePoints(0));
         }
 
-        player.shootWeapon(gameObjects);
-        if (gameObjects.isHitted()) {
-            player.setScore(givePoints());
+        player.shootWeapon(objects[1]);
+        if (objects[1].isHitted()) {
+            player.setScore(givePoints(1));
         }
+
+
+
+
 
     }
 
-    public GameObjects createObjects(int objectsNumber) {
-        return null;
-    }
-
-
-    public int givePoints() {
-        return gameObjects.getPoints();
+    public int givePoints(int position) {
+        return objects[position].getPoints();
     }
 
 
