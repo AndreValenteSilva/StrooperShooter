@@ -7,9 +7,9 @@ public class Weapon {
     private int bulletNumber;   //might be a final property?
 
 
-    public Weapon(int bulletNumber) {
+    public Weapon() {
 
-        this.bulletNumber = bulletNumber;
+        this.bulletNumber = 5;
     }
 
 
@@ -21,7 +21,7 @@ public class Weapon {
 
     public void reload() {
 
-        bulletNumber += 5;
+        bulletNumber = 5;
     }
 
 

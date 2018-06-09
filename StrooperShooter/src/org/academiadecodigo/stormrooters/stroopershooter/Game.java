@@ -11,12 +11,14 @@ public class Game {
     private Player player;
     private Field field;
     private GameObjects gameObjects;
+    private Weapon sniper;
 
     public static final int BULLET_DAMAGE = 1;
 
 
     public Game(int numberObjects) {
-
+        this.player = new Player("Batata", sniper);
+        this.sniper = new Weapon();
         this.gameObjects = createObjects(numberObjects);
 
     }
@@ -30,7 +32,6 @@ public class Game {
     public void init() {
 
     }
-
 
     public GameObjects createObjects(int numberObjects) {
 

@@ -1,17 +1,18 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position;
+public abstract class Target extends GameObjects {
 
-public class Target extends GameObjects {
+    public Target() {
 
-    public Target(int size, Position position) {
-
-        super(size, position);
+        super();
     }
 
-    @Override
-    public boolean isHitted() {
+    public abstract int getPoints();
 
-        return super.isHitted();
+    public void hit() {
+
+        getPoints();
+
+        setHitted();
     }
 }

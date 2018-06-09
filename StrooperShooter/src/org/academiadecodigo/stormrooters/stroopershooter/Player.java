@@ -9,25 +9,28 @@ public class Player {
     private Weapon sniper;
     private GameObjects objects;
 
-    public Player(String name) {
+    public Player(String name, Weapon weapon) {
 
         this.name = name;
-        this.sniper = new Weapon(sniper.getBulletNumber());
+        this.sniper = weapon;
     }
 
     public void moveSight() {
-
+        //mouseTracker
     }
 
     public void shootWeapon() {
 
-        if (sniper.getBulletNumber() == 0) {
-
-            sniper.reload();
+        if (sniper.getBulletNumber() > 0) {
+            sniper.shoot(objects);
         }
+        // else say reload
+    }
 
-        sniper.shoot(objects);
+    public void reload() {
 
+        //receives input from keyboard
+        sniper.reload();
     }
 
 
