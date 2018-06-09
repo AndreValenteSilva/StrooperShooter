@@ -6,7 +6,8 @@ public class Main {
 
        Game test = new Game(3);
 
-       test.init();
+       //test.init();
 
+        test.start();
     }
 }

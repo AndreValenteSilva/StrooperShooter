@@ -31,7 +31,7 @@ public class Player {
         // mouseHandler logic
     }
 
-    public void shootWeapon() {
+    public void shootWeapon(GameObjects objects) {
 
         if (sniper.getBulletNumber() > 0) {
             sniper.shoot(objects);
@@ -54,9 +54,9 @@ public class Player {
     }
 
     //SETTER
-    public void setScore(int score) {
+    public void setScore(int points) {
 
-        this.score = score;
+        this.score += points;
     }
 
     //NESTED NESTED NESTED

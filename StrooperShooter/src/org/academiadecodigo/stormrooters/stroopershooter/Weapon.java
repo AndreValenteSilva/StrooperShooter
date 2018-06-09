@@ -7,7 +7,6 @@ public class Weapon {
 
     private int bulletNumber;   //might be a final property?
 
-
     public Weapon() {
         this.bulletNumber = 5;
     }
@@ -16,6 +15,8 @@ public class Weapon {
     public void shoot(GameObjects objects) {
 
         bulletNumber--;
+        objects.hit();
+
     }
 
 
