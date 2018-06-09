@@ -1,5 +1,6 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
+
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 
 public class Weapon {
@@ -14,6 +15,7 @@ public class Weapon {
     public void shoot(GameObjects objects) {
 
         bulletNumber--;
+        System.out.println("bullets: " + bulletNumber);
         objects.hit();
 
     }
@@ -29,4 +31,5 @@ public class Weapon {
 
         return bulletNumber;
     }
+
 }

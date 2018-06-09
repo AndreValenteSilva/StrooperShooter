@@ -3,8 +3,8 @@ package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
 
 public class Enemy extends Target{
-
     private int points;
+    private int fuckedUpCounter = 0;
 
     public Enemy(GridPosition gridPosition) {
         super(gridPosition);
@@ -13,6 +13,10 @@ public class Enemy extends Target{
 
     @Override
     public int getPoints() {
-        return this.points;
+        if (fuckedUpCounter < 1) {
+            fuckedUpCounter++;
+            return this.points;
+        }
+        return 0;
     }
 }

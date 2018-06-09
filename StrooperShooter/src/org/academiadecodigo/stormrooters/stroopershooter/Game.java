@@ -12,26 +12,28 @@ public class Game {
     private Grid grid;
     private GameObjects gameObjects;
     private Weapon sniper;
-    private Enemy objects;
+    private Enemy[] objects;
     private boolean gameInit;
 
     public static final int BULLET_DAMAGE = 1;
 
 
-    public Game() {
-        this.player = new Player("Batata", sniper);
+    public Game(int objectsNumber) {
         this.sniper = new Weapon();
-        //this.gameObjects = createObjects(numberObjects);
         grid = new SimplegfxGrid(124, 86);
+        //this.gameObjects = new Enemy();
+        //this.gameObjects = createObjects(objectsNumber);
+        this.player = new Player("Batata", sniper);
+        this.objects = new Enemy[objectsNumber];
     }
 
     public void init() {
 
         grid.init();
 
-        for (int i = 0; i < 5; i++) {
-            objects = new Enemy(grid.makeGridPosition());
-            System.out.println(objects.getPos().toString());
+        for (int i = 0; i < objects.length; i++) {
+            objects[i] = new Enemy(grid.makeGridPosition());
+            //System.out.println(objects.getPos().toString());
         }
 
         start();
@@ -42,19 +44,24 @@ public class Game {
         //objects = new Target(grid.makeGridPosition(20, 20));
         System.out.println("out while");
 
-        player.shootWeapon(gameObjects);
-        if (gameObjects.isHitted()) {
-            player.setScore(givePoints());
+        player.shootWeapon(objects[0]);
+        if (objects[0].isHitted()) {
+            player.setScore(givePoints(0));
         }
+
+        player.shootWeapon(objects[1]);
+        if (objects[1].isHitted()) {
+            player.setScore(givePoints(1));
+        }
+
+
+
+
+
     }
 
-    public GameObjects createObjects(int numberObjects) {
-        return null;
-    }
-
-
-    public int givePoints() {
-        return gameObjects.getPoints();
+    public int givePoints(int position) {
+        return objects[position].getPoints();
     }
 
 
@@ -66,96 +73,4 @@ public class Game {
         return "Game Over";
     }
 
-/*    //NESTED CLASS NESTED CLASS NESTED CLASS  ---> Not sure about this class, perhaps, shall be in a different window??
-
-    public class LinkedList<T> implements Iterable<T> {
-
-        private Node head;
-        private int length = 0;
-        private int max;
-        private int min;
-
-        public LinkedList() {
-
-            this.head = new Node(null);
-        }
-
-
-        @Override
-        public Iterator<T> iterator() {
-
-            return new MyIterator() {
-            };
-        }
-
-
-        //NESTED CLASS NODE
-
-        private class Node {
-
-            private T data;
-            private Node next;
-
-            public Node(T data) {
-                this.data = data;
-                next = null;
-            }
-
-            public T getT() {
-
-                return data;
-            }
-
-            public void setData(T data) {
-
-                this.data = data;
-            }
-
-            public Node getNext() {
-
-                return next;
-            }
-
-            public void setNext(Node next) {
-
-                this.next = next;
-            }
-        }
-
-
-        private class MyIterator implements Iterator<T> {
-
-            private Node currentNode;
-            private Node nextNode;
-
-
-            public MyIterator() {
-
-                this.currentNode = head;
-                this.nextNode = currentNode.getNext();
-            }
-
-
-            @Override
-            public T next() {
-
-                currentNode = currentNode.getNext();
-                nextNode = currentNode.getNext();
-
-                return currentNode.getT();
-            }
-
-            @Override
-            public boolean hasNext() {
-
-                if (currentNode != null) {
-                    return true;
-                }
-
-                return false;
-            }
-
-        }
-
-    }*/
 }

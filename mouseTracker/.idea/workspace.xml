@@ -15,6 +15,10 @@
       <file leaf-file-name="MouseTracker.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/stormrooters/MouseTracker.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="825">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
+=======
             <state relative-caret-position="-7">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
@@ -26,6 +30,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="307">
               <caret line="140" selection-start-line="140" selection-end-line="140" />
+>>>>>>> d768b631f8f495ce9aee53352b86ca6c53b8d784
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3652#3653#0" expanded="true" />
@@ -67,17 +72,38 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="1" />
+    <option name="y" value="23" />
+    <option name="width" value="1085" />
+    <option name="height" value="977" />
+=======
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="170" />
     <option name="y" value="50" />
     <option name="width" value="3500" />
     <option name="height" value="1810" />
+>>>>>>> d768b631f8f495ce9aee53352b86ca6c53b8d784
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+      <pane id="Scope" />
+=======
+>>>>>>> d768b631f8f495ce9aee53352b86ca6c53b8d784
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
@@ -203,15 +229,47 @@
       <created>1528492929784</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
+      <updated>1528476060143</updated>
+      <workItem from="1528476061640" duration="499000" />
+      <workItem from="1528476638259" duration="85000" />
+      <workItem from="1528557004346" duration="1717000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2301000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
+=======
       <updated>1528492929784</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
+>>>>>>> d768b631f8f495ce9aee53352b86ca6c53b8d784
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.027860697" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14376996" />
+      <window_info anchor="right" id="Database" order="3" />
+=======
       <window_info anchor="bottom" id="Messages" weight="0.32859176" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info id="Image Layers" />
@@ -224,6 +282,7 @@
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24949698" />
+>>>>>>> d768b631f8f495ce9aee53352b86ca6c53b8d784
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" />
@@ -244,8 +303,23 @@
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/applet/Applet.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="765">
+          <caret line="58" column="4" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/stormrooters/MouseTracker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+=======
         <state relative-caret-position="200">
           <caret line="189" column="19" selection-start-line="189" selection-start-column="19" selection-end-line="189" selection-end-column="19" />
+>>>>>>> d768b631f8f495ce9aee53352b86ca6c53b8d784
           <folding>
             <element signature="e#5752#5753#0" expanded="true" />
             <element signature="e#5800#5801#0" expanded="true" />
@@ -253,6 +327,27 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/stormrooters/Main.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1296">
+          <caret line="5694" column="29" selection-start-line="5694" selection-start-column="29" selection-end-line="5694" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/javax/swing/JFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1217">
+          <caret line="122" column="13" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/stormrooters/MouseTracker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+=======
     <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/stormrooters/testTimer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -264,6 +359,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
           <caret line="140" selection-start-line="140" selection-end-line="140" />
+>>>>>>> d768b631f8f495ce9aee53352b86ca6c53b8d784
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3652#3653#0" expanded="true" />
