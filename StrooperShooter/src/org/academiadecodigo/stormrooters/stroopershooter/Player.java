@@ -18,7 +18,6 @@ public class Player {
     private GameObjects objects;
     private int X;
     private int Y;
-    private boolean reload;
     private WeaponControl weaponControl;
     private ReloadControl reloadControl;
 
@@ -26,7 +25,6 @@ public class Player {
 
         this.name = name;
         this.sniper = new Weapon();
-        this.reload = false;
         this.weaponControl = new WeaponControl();
         this.reloadControl = new ReloadControl();
     }
@@ -45,7 +43,6 @@ public class Player {
 
     public void reload() {
 
-        //receives input from keyboard
         sniper.reload();
 
     }
@@ -126,7 +123,7 @@ public class Player {
         @Override
         public void keyPressed(KeyboardEvent e) {
             System.out.println("reaload");
-            reload = true;
+            reload();
         }
 
 
