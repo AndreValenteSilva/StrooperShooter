@@ -1,6 +1,7 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
@@ -12,7 +13,7 @@ public class Game {
     private Grid grid;
     private GameObjects gameObjects;
     private Weapon sniper;
-    private Enemy[] objects;
+    private GameObjects[] objects;
     private boolean gameInit;
 
     public static final int BULLET_DAMAGE = 1;
@@ -20,7 +21,7 @@ public class Game {
 
     public Game(int objectsNumber) {
         this.sniper = new Weapon();
-        grid = new SimplegfxGrid(124, 86);
+        grid = new SimplegfxGrid(124, 78);
         //this.gameObjects = new Enemy();
         //this.gameObjects = createObjects(objectsNumber);
         this.player = new Player("Batata", sniper);
@@ -31,12 +32,28 @@ public class Game {
 
         grid.init();
 
+        //for loop to check if there two objects on the same position
+        //not working
+        //they would need to be in the exact x and y to accept it as same position
+        //we need to find a way to create a range
         for (int i = 0; i < objects.length; i++) {
             objects[i] = new Enemy(grid.makeGridPosition());
-            //System.out.println(objects.getPos().toString());
-        }
 
+            if (i != 0) {
+                checkPosition(i);
+            }
+        }
         start();
+    }
+
+    private void checkPosition(int arrayPosition) {
+
+        for (int j = 0; arrayPosition >= j; j++) {
+
+            if (objects[arrayPosition].getPos().equals(objects[arrayPosition].getPos()) && arrayPosition != j) {
+                objects[arrayPosition] = new Enemy(grid.makeGridPosition());
+            }
+        }
     }
 
     public void start() {

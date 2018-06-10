@@ -5,13 +5,10 @@ import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 
 public abstract class GameObjects implements Destroyable {
 
-
-    private int size; //not really sure if size it's going to be an int
     private GridPosition position;
     private boolean hitted;
 
     public GameObjects(GridPosition gridPosition) {
-        //this.size = size;
         this.position = gridPosition;
         this.hitted = false;
     }
@@ -25,10 +22,18 @@ public abstract class GameObjects implements Destroyable {
     }
 
     public int getX() {
-        return this.position.getCol()*SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING;
+        return this.position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING;
     }
 
-    public int getY(){
-        return this.position.getRow()*SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING;
+    public int getY() {
+        return this.position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING;
+    }
+
+    public GridPosition getPos() {
+        return position;
+    }
+
+    public String toString() {
+        return getX() + " " + getY();
     }
 }
