@@ -14,10 +14,11 @@ public class Weapon {
 
     public void shoot(GameObjects objects) {
 
-        bulletNumber--;
-        System.out.println("bullets: " + bulletNumber);
-        objects.hit();
-
+        if (bulletNumber > 0) {
+            bulletNumber--;
+            System.out.println("bullets: " + bulletNumber);
+            objects.hit();
+        }
     }
 
 

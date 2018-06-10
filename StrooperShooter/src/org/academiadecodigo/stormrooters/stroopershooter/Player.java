@@ -34,10 +34,9 @@ public class Player {
     }
 
     public void shootWeapon(GameObjects objects) {
+        this.objects = objects;
 
-        if (sniper.getBulletNumber() > 0) {
-            sniper.shoot(objects);
-        }
+        sniper.shoot(objects);
         // else say reload
     }
 
@@ -53,6 +52,11 @@ public class Player {
 
     public int getY() {
         return Y;
+    }
+
+    public void reset() {
+        this.X = 0;
+        this.Y = 0;
     }
 
     //SETTER
@@ -82,10 +86,9 @@ public class Player {
         @Override
         public void mouseClicked(MouseEvent e) {
 
-            int x = (int) e.getX();
-            int y = (int) e.getY();
-            System.out.println("X:" + x + "Y:" + y);
-            shootWeapon(objects);
+            X = (int) e.getX();
+            Y = (int) e.getY() - 25;
+            //shootWeapon(objects);
         }
 
         @Override
@@ -122,7 +125,7 @@ public class Player {
 
         @Override
         public void keyPressed(KeyboardEvent e) {
-            System.out.println("reaload");
+            System.out.println("thaReaLoad");
             reload();
         }
 

@@ -16,14 +16,15 @@ public class SimplegfxGridPosition implements GridPosition {
 
         int size = (int) (Math.random() * 3 + 1); //generate a random number to change the objects size
 
-        this.col = (int) (Math.random() * (grid.getCols()-10));
-        this.row = (int) (Math.random() * (grid.getRows()-26));
+        this.col = (int) (Math.random() * (grid.getCols() - 10));
+        this.row = (int) (Math.random() * (grid.getRows() - 26));
         this.height = 30 * size;
         this.width = 30 * size;
 
         int x = grid.columnToX(getCol());
         int y = grid.rowToY(getRow());
 
+        //x ternary verifying that the object is not created closer to the edge
         this.object = new Rectangle(x < 125 ? 100 : x, y, height, width);
         System.out.println(getX() + "......" + getY());
 
@@ -34,8 +35,8 @@ public class SimplegfxGridPosition implements GridPosition {
         this.col = col;
         this.row = row;
 
-        int x = grid.columnToX(getCol()-10);
-        int y = grid.rowToY(getRow()-20);
+        int x = grid.columnToX(getCol() - 10);
+        int y = grid.rowToY(getRow() - 20);
 
         this.object = new Rectangle(x, y, grid.getCellsize(), grid.getCellsize());
         System.out.println(getX());

@@ -9,6 +9,6 @@ public interface Grid {
 
     public SimplegfxGridPosition makeGridPosition();
 
-    public GridPosition makeGridPosition(int col, int row);
+    GridPosition makeGridPosition(int col, int row);
 
 }
