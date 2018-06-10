@@ -33,10 +33,9 @@ public class Player {
         // mouseHandler logic
     }
 
-    public void shootWeapon(GameObjects objects) {
-        this.objects = objects;
+    public void shootWeapon() {
 
-        sniper.shoot(objects);
+        sniper.shoot();
         // else say reload
     }
 
@@ -88,7 +87,7 @@ public class Player {
 
             X = (int) e.getX();
             Y = (int) e.getY() - 25;
-            //shootWeapon(objects);
+            shootWeapon();
         }
 
         @Override

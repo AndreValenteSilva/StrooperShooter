@@ -12,15 +12,13 @@ public class Weapon {
     }
 
 
-    public void shoot(GameObjects objects) {
+    public void shoot() {
 
         if (bulletNumber > 0) {
             bulletNumber--;
             System.out.println("bullets: " + bulletNumber);
-            objects.hit();
         }
     }
-
 
     public void reload() {
 

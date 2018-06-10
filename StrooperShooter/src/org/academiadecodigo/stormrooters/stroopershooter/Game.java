@@ -65,14 +65,13 @@ public class Game {
 
 
         while (gameOn) {
-            Thread.sleep(500);
+            Thread.sleep(1000);
 
             for (Target object : objects) {
 
                 if (player.getX() >= object.getX() && player.getX() <= object.getX() + object.getWidth() &&
                         player.getY() >= object.getY() && player.getY() <= object.getY() + object.getHeigth()) {
-                    player.shootWeapon(object);
-                    //object.hit();
+                    object.hit();
                     player.setScore(object.getPoints());
                     player.reset();
                 }
