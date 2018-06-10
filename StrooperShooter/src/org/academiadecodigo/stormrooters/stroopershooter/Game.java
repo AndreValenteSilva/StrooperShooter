@@ -8,24 +8,20 @@ import org.academiadecodigo.stormrooters.stroopershooter.Timer.CountDownTimer;
 
 public class Game {
 
-    private CountDownTimer timer; //the type must be changed
+    private CountDownTimer timer;
     private Player player;
     private Grid grid;
-    private Target objects;
     private Weapon sniper;
-    //private GameObjects[] objects;
-    //private Target[] objects;
+    private Target[] objects;
     private boolean gameInit;
     private boolean gameOn = true;
-
-    //public static final int BULLET_DAMAGE = 1;
 
 
     public Game(int objectsNumber) {
         this.sniper = new Weapon();
         this.grid = new SimplegfxGrid(124, 78);
         this.player = new Player("Batata", sniper);
-        //this.objects = new Enemy[objectsNumber];
+        this.objects = new Target[objectsNumber];
     }
 
     public void init() throws InterruptedException {
@@ -36,16 +32,13 @@ public class Game {
         //not working
         //they would need to be in the exact x and y to accept it as same position
         //we need to find a way to create a range
-/*        for (int i = 0; i < objects.length; i++) {
+        for (int i = 0; i < objects.length; i++) {
             objects[i] = new Enemy(grid.makeGridPosition());
 
             if (i != 0) {
                 checkPosition(i);
             }
         }
-
-*/
-        objects = new Enemy(grid.makeGridPosition());
 
         start();
     }
@@ -55,12 +48,12 @@ public class Game {
 
 /*        for (int j = 0; arrayPosition >= j; j++) {
 
->>>>>>> feature
             if (objects[arrayPosition].getPos().equals(objects[arrayPosition].getPos()) && arrayPosition != j) {
                 objects[arrayPosition] = new Enemy(grid.makeGridPosition());
             }
         }
- */   }
+ */
+    }
 
     public void start() throws InterruptedException {
 
@@ -71,22 +64,18 @@ public class Game {
 //        objectTimer.countdownObject();
 
 
-/*
-
-        player.shootWeapon(objects[0]);
-        if (objects[0].isHitted()) {
-            player.setScore(givePoints(0));
-        }
-*/
         while (gameOn) {
-            Thread.sleep(2000);
-        System.out.println("X:" + player.getX() + "; Y:" + player.getY());
-            if (player.getX() >= objects.getX() && player.getX() <= objects.getX() + objects.getWidth() &&
-                    player.getY() >= objects.getY() +0 && player.getY() <= objects.getY() + objects.getHeigth() +0 ) {
-                player.shootWeapon(objects);
-                objects.hit();
-                player.setScore(objects.getPoints());
-                System.out.println("hit");
+            Thread.sleep(500);
+
+            for (Target object : objects) {
+
+                if (player.getX() >= object.getX() && player.getX() <= object.getX() + object.getWidth() &&
+                        player.getY() >= object.getY() && player.getY() <= object.getY() + object.getHeigth()) {
+                    player.shootWeapon(object);
+                    //object.hit();
+                    player.setScore(object.getPoints());
+                    player.reset();
+                }
             }
         }
 //        System.out.println("object----" + objects[0].getX() + "..." + objects[0].getY());
@@ -94,7 +83,7 @@ public class Game {
     }
 
     public int givePoints(int position) {
-        return objects/*[position]*/.getPoints();
+        return objects[position].getPoints();
     }
 
 
