@@ -43,6 +43,8 @@ public class Game {
                 checkPosition(i);
             }
         }
+
+
         start();
     }
 
@@ -59,6 +61,8 @@ public class Game {
     public void start() {
 
         System.out.println("out while");
+
+        
 
         player.shootWeapon(objects[0]);
         if (objects[0].isHitted()) {
