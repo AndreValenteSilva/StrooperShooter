@@ -13,14 +13,10 @@ public class TimeBox extends Box {
 
     @Override
     public int getBonus() {
+
         //adds bonus(5?)seconds to game timer
         //time.delayTime;
+
         return this.bonus;
     }
-
-    //@Override
-    //public  int getPoints() {
-    //    return 0;
-    //}
-
 }

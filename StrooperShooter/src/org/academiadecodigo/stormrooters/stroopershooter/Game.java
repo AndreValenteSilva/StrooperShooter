@@ -18,7 +18,7 @@ public class Game {
     private Target[] objects;
     private boolean gameInit;
 
-    public static final int BULLET_DAMAGE = 1;
+    //public static final int BULLET_DAMAGE = 1;
 
 
     public Game(int objectsNumber) {
