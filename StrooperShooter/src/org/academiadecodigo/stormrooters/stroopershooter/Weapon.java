@@ -16,7 +16,7 @@ public class Weapon {
 
         bulletNumber--;
         System.out.println("bullets: " + bulletNumber);
-        objects.hit();
+        //objects.hit();
 
     }
 

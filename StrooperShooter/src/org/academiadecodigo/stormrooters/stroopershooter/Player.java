@@ -34,6 +34,7 @@ public class Player {
     }
 
     public void shootWeapon(GameObjects objects) {
+        this.objects = objects;
 
         if (sniper.getBulletNumber() > 0) {
             sniper.shoot(objects);
@@ -82,9 +83,9 @@ public class Player {
         @Override
         public void mouseClicked(MouseEvent e) {
 
-            int x = (int) e.getX();
-            int y = (int) e.getY();
-            System.out.println("X:" + x + "Y:" + y);
+            X = (int) e.getX();
+            Y = (int) e.getY();
+            System.out.println("X:" + X + "Y:" + Y);
             shootWeapon(objects);
         }
 
