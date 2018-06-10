@@ -84,8 +84,7 @@ public class Player {
         public void mouseClicked(MouseEvent e) {
 
             X = (int) e.getX();
-            Y = (int) e.getY();
-            System.out.println("X:" + X + "Y:" + Y);
+            Y = (int) e.getY() - 25;
             shootWeapon(objects);
         }
 

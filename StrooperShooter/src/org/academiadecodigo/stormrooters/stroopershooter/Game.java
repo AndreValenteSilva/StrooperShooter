@@ -79,10 +79,10 @@ public class Game {
         }
 */
         while (gameOn) {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         System.out.println("X:" + player.getX() + "; Y:" + player.getY());
-            if (player.getX() >= objects.getX() && player.getX() <= ( objects.getX() + objects.getWidth() ) &&
-                    player.getY() >= objects.getY() && player.getY() <= ( objects.getY() + objects.getHeigth() ) ) {
+            if (player.getX() >= objects.getX() && player.getX() <= objects.getX() + objects.getWidth() &&
+                    player.getY() >= objects.getY() +0 && player.getY() <= objects.getY() + objects.getHeigth() +0 ) {
                 player.shootWeapon(objects);
                 objects.hit();
                 player.setScore(objects.getPoints());
