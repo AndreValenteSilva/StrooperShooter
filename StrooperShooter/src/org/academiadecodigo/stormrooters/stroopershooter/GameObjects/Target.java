@@ -17,6 +17,8 @@ public abstract class Target extends GameObjects {
         target.setColor(Color.BLUE);*/
     }
 
+    public abstract int getPoints();
+
     public void hit() {
         setHitted();
     }

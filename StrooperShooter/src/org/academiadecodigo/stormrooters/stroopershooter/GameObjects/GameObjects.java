@@ -36,4 +36,6 @@ public abstract class GameObjects implements Destroyable {
     public String toString() {
         return getX() + " " + getY();
     }
+
+
 }

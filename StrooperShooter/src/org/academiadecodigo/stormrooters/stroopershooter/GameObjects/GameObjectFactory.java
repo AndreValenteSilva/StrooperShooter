@@ -7,7 +7,6 @@ public class GameObjectFactory {
     public static GameObjects createObject(int objectsNumber) {
 
 
-
         return null; //Math.random() > 0.3 ? new Target(): new Box();
 
     }
