@@ -33,4 +33,6 @@ public abstract class GameObjects implements Destroyable {
     public GridPosition getPos() {
         return this.position;
     }
+
+
 }

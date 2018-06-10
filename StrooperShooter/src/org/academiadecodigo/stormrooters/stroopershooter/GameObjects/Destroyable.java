@@ -6,5 +6,4 @@ public interface Destroyable {
 
     void hit();
 
-    int getPoints();
 }

@@ -33,8 +33,4 @@ public abstract class Box extends GameObjects {
         }
     }
 
-    @Override
-    public int getPoints() {
-        return 0;
-    }
 }

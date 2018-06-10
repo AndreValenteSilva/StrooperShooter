@@ -18,9 +18,9 @@ public class TimeBox extends Box {
         return this.bonus;
     }
 
-    @Override
-    public  int getPoints() {
-        return 0;
-    }
+    //@Override
+    //public  int getPoints() {
+    //    return 0;
+    //}
 
 }

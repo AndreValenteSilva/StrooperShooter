@@ -4,6 +4,7 @@ import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
+import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Target;
 
 public class Game {
 
@@ -12,7 +13,7 @@ public class Game {
     private Grid grid;
     private GameObjects gameObjects;
     private Weapon sniper;
-    private Enemy[] objects;
+    private Target[] objects;
     private boolean gameInit;
 
     public static final int BULLET_DAMAGE = 1;
@@ -41,7 +42,6 @@ public class Game {
 
     public void start() {
 
-        //objects = new Target(grid.makeGridPosition(20, 20));
         System.out.println("out while");
 
         player.shootWeapon(objects[0]);
@@ -53,8 +53,6 @@ public class Game {
         if (objects[1].isHitted()) {
             player.setScore(givePoints(1));
         }
-
-
 
 
 
