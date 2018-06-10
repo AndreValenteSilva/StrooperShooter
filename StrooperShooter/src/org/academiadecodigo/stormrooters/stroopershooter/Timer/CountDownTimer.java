@@ -8,6 +8,7 @@ import java.util.TimerTask;
 public class CountDownTimer {
 
     private int seconds;
+    private int objectsRound;
 
 
     public CountDownTimer(int seconds) {
@@ -20,11 +21,11 @@ public class CountDownTimer {
         @Override
         public void run() {
             if (seconds > 0) {
-                seconds--;
                 System.out.println(seconds);
+                --seconds;
             } else {
-
                 System.out.println("Game Over");
+                cancel();
             }
         }
     };
@@ -32,16 +33,20 @@ public class CountDownTimer {
     TimerTask timerObject = new TimerTask() {
         @Override
         public void run() {
-            if (seconds > 0) {
-                seconds--;
+            if (seconds >= 0) {
                 System.out.println(seconds);
+                --seconds;
             }
 
             if (seconds == 0) {
                 System.out.println("Object disappear");
                 seconds = 5;
+                ++objectsRound;
             }
 
+            if (objectsRound > 6) {
+                cancel();
+            }
         }
     };
 

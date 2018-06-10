@@ -1,13 +1,14 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.SimplegfxGridPosition;
 
 public abstract class Box extends GameObjects {
 
     private int timer; //var type might need to be changed
     private int hitCounter;
 
-    public Box(GridPosition gridPosition) {
+    public Box(SimplegfxGridPosition gridPosition) {
         super(gridPosition);
         this.hitCounter = 0;
     }

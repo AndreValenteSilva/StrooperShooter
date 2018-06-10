@@ -58,11 +58,11 @@ public class Game {
 
     public void start() {
 
-        timer = new CountDownTimer(31);
+        timer = new CountDownTimer(30);
         timer.startCountTimer();
 
-//        CountDownTimer objectTimer = new CountDownTimer(6);
-//        objectTimer.countdownObject();
+        CountDownTimer objectTimer = new CountDownTimer(5);
+        objectTimer.countdownObject();
 
         player.shootWeapon(objects[0]);
         if (objects[0].isHitted()) {
@@ -86,7 +86,10 @@ public class Game {
     }
 
 
-    public String gameOver() {
+    public String gameOver(int seconds) {
+        if (seconds == 0) {
+
+        }
         return "Game Over";
     }
 
