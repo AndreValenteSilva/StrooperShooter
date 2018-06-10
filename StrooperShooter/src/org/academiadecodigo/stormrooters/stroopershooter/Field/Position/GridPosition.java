@@ -2,17 +2,16 @@ package org.academiadecodigo.stormrooters.stroopershooter.Field.Position;
 
 public interface GridPosition {
 
-    /*public int getCol;
+    int getCol();
 
-    public int getRow;*/
+    int getRow();
 
-    public void setPos (int col, int row);
+    void setPos(int col, int row);
 
-    public void show();
+    void show();
 
-    public void hide();
+    void hide();
 
-
-    public boolean equals (GridPosition position);
+    boolean equals (GridPosition position);
 
 }

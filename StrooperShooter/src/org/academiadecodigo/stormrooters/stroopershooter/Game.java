@@ -54,9 +54,7 @@ public class Game {
             player.setScore(givePoints(1));
         }
 
-
-
-
+        System.out.println("object----" + objects[0].getX() + "..." + objects[0].getY());
 
     }
 

@@ -19,8 +19,8 @@ public class SimplegfxGridPosition implements GridPosition {
         int x = grid.columnToX(getCol());
         int y = grid.rowToY(getRow());
 
-        System.out.println(x + " " + y);
         this.object = new Rectangle(x, y, 75, 75);
+        System.out.println(getX() + "......" + getY());
 
         show();
     }
@@ -34,12 +34,21 @@ public class SimplegfxGridPosition implements GridPosition {
         int y = grid.rowToY(getRow());
 
         this.object = new Rectangle(x, y, grid.getCellsize(), grid.getCellsize());
+        System.out.println(getX());
     }
 
     @Override
-    public void setPos(int col, int row) {
+    public void setPos(int  col, int row) {
         this.col = col;
         this.row = row;
+    }
+
+    public int getX() {
+        return object.getX();
+    }
+
+    public int getY() {
+        return object.getY();
     }
 
     public int getCol() {
@@ -66,4 +75,8 @@ public class SimplegfxGridPosition implements GridPosition {
         return false;
     }
 
+    /*@Override
+    public String toString() {
+
+    }*/
 }
