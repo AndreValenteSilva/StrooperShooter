@@ -1,14 +1,15 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.SimplegfxGridPosition;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 
 public abstract class GameObjects implements Destroyable {
 
-    private GridPosition position;
+    private SimplegfxGridPosition position;
     private boolean hitted;
 
-    public GameObjects(GridPosition gridPosition) {
+    public GameObjects(SimplegfxGridPosition gridPosition) {
         this.position = gridPosition;
         this.hitted = false;
     }
@@ -31,6 +32,14 @@ public abstract class GameObjects implements Destroyable {
 
     public GridPosition getPos() {
         return position;
+    }
+
+    public int getWidht() {
+        return position.getWidth();
+    }
+
+    public int getHeigth() {
+        return position.getHeight();
     }
 
     public String toString() {

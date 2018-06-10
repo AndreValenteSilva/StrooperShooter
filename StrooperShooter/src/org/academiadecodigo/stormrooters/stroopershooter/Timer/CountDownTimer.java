@@ -1,26 +1,59 @@
 package org.academiadecodigo.stormrooters.stroopershooter.Timer;
 
+import org.academiadecodigo.stormrooters.stroopershooter.Game;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class CountDownTimer {
 
-    public static void main(String[] args) throws Exception {
+    private int seconds;
 
 
-        int i = 10;
-
-        while (i != 0) {
-            System.out.println("\b" + i);
-
-            i--;
-
-            Thread.sleep(1000);
-        }
-
-
-        System.out.println("\b*****************");
-        System.out.println("Game Over");
-        System.out.println("******************");
-
-
+    public CountDownTimer(int seconds) {
+        this.seconds = seconds;
     }
 
+    Timer timer = new Timer();
+
+    TimerTask task = new TimerTask() {
+        @Override
+        public void run() {
+            if (seconds > 0) {
+                seconds--;
+                System.out.println(seconds);
+            } else {
+
+                System.out.println("Game Over");
+            }
+        }
+    };
+
+    TimerTask timerObject = new TimerTask() {
+        @Override
+        public void run() {
+            if (seconds > 0) {
+                seconds--;
+                System.out.println(seconds);
+            }
+
+            if (seconds == 0) {
+                System.out.println("Object disappear");
+                seconds = 5;
+            }
+
+        }
+    };
+
+    public void startCountTimer() {
+        timer.scheduleAtFixedRate(task, 1000, 1000);
+    }
+
+    public void countdownObject() {
+        timer.scheduleAtFixedRate(timerObject, 1000, 1000);
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
 }

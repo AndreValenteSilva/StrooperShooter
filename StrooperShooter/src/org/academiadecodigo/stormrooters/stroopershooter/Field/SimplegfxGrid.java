@@ -28,12 +28,12 @@ public class SimplegfxGrid implements Grid {
     }
 
     @Override // creates a random SimplegfxGridPosition
-    public GridPosition makeGridPosition() {
+    public SimplegfxGridPosition makeGridPosition() {
         return new SimplegfxGridPosition(this);
     }
 
     @Override
-    public GridPosition makeGridPosition(int col, int row) {
+    public SimplegfxGridPosition makeGridPosition(int col, int row) {
         return new SimplegfxGridPosition(col, row, this);
     }
 

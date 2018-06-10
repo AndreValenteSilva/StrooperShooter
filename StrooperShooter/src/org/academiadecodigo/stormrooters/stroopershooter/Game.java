@@ -6,10 +6,11 @@ import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Target;
+import org.academiadecodigo.stormrooters.stroopershooter.Timer.CountDownTimer;
 
 public class Game {
 
-    private int timer; //the type must be changed
+    private CountDownTimer timer; //the type must be changed
     private Player player;
     private Grid grid;
     private GameObjects gameObjects;
@@ -43,15 +44,12 @@ public class Game {
                 checkPosition(i);
             }
         }
-
-
         start();
     }
 
     private void checkPosition(int arrayPosition) {
 
         for (int j = 0; arrayPosition >= j; j++) {
-
             if (objects[arrayPosition].getPos().equals(objects[arrayPosition].getPos()) && arrayPosition != j) {
                 objects[arrayPosition] = new Enemy(grid.makeGridPosition());
             }
@@ -60,9 +58,11 @@ public class Game {
 
     public void start() {
 
-        System.out.println("out while");
+        timer = new CountDownTimer(31);
+        timer.startCountTimer();
 
-        
+//        CountDownTimer objectTimer = new CountDownTimer(6);
+//        objectTimer.countdownObject();
 
         player.shootWeapon(objects[0]);
         if (objects[0].isHitted()) {
@@ -75,7 +75,6 @@ public class Game {
         }
 
         System.out.println("object----" + objects[0].getX() + "..." + objects[0].getY());
-
     }
 
     public int givePoints(int position) {
