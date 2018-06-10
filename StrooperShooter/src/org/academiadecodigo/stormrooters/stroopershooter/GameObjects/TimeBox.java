@@ -1,12 +1,13 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.SimplegfxGridPosition;
 
 public class TimeBox extends Box {
 
     private int bonus;
 
-    public TimeBox(GridPosition gridPosition) {
+    public TimeBox(SimplegfxGridPosition gridPosition) {
         super(gridPosition);
         this.bonus = 5;
     }

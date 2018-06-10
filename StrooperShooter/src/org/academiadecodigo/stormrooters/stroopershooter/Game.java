@@ -64,8 +64,8 @@ public class Game {
 
     public void start() throws InterruptedException {
 
-        timer = new CountDownTimer(31);
-        timer.startCountTimer();
+        // timer = new CountDownTimer(31);
+        // timer.startCountTimer();
 
 //        CountDownTimer objectTimer = new CountDownTimer(6);
 //        objectTimer.countdownObject();
@@ -79,10 +79,10 @@ public class Game {
         }
 */
         while (gameOn) {
-            Thread.sleep(100);
+            Thread.sleep(1000);
         System.out.println("X:" + player.getX() + "; Y:" + player.getY());
-            if (player.getX() >= objects.getX() && player.getX() <= objects.getX() + getwidth() &&
-                    player.getY() >= objects.getY() && player.getY() <= objects.getY() + heigth()) {
+            if (player.getX() >= objects.getX() && player.getX() <= ( objects.getX() + objects.getWidth() ) &&
+                    player.getY() >= objects.getY() && player.getY() <= ( objects.getY() + objects.getHeigth() ) ) {
                 player.shootWeapon(objects);
                 objects.hit();
                 player.setScore(objects.getPoints());

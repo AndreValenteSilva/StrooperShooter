@@ -1,13 +1,14 @@
 package org.academiadecodigo.stormrooters.stroopershooter.Field;
 
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.SimplegfxGridPosition;
 
 public interface Grid {
 
     void init();
 
-    public GridPosition makeGridPosition();
+    SimplegfxGridPosition makeGridPosition();
 
-    public GridPosition makeGridPosition(int col, int row);
+    GridPosition makeGridPosition(int col, int row);
 
 }

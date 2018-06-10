@@ -34,7 +34,7 @@ public abstract class GameObjects implements Destroyable {
         return position;
     }
 
-    public int getWidht() {
+    public int getWidth() {
         return position.getWidth();
     }
 
