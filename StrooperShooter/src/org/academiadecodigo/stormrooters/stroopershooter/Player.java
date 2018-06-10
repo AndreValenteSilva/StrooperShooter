@@ -19,12 +19,16 @@ public class Player {
     private int X;
     private int Y;
     private boolean reload;
+    private WeaponControl weaponControl;
+    private ReloadControl reloadControl;
 
     public Player(String name, Weapon weapon) {
 
         this.name = name;
         this.sniper = new Weapon();
         this.reload = false;
+        this.weaponControl = new WeaponControl();
+        this.reloadControl = new ReloadControl();
     }
 
     public void moveSight() {
@@ -83,6 +87,7 @@ public class Player {
 
             int x = (int) e.getX();
             int y = (int) e.getY();
+            System.out.println("X:" + x + "Y:" + y);
             shootWeapon(objects);
         }
 
@@ -120,7 +125,7 @@ public class Player {
 
         @Override
         public void keyPressed(KeyboardEvent e) {
-
+            System.out.println("reaload");
             reload = true;
         }
 
