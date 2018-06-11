@@ -94,39 +94,52 @@ public class SimplegfxGridPosition implements GridPosition {
         int x = getCol();
         int y = getRow();
 
-        System.out.println("X " + x + " Y " + y + " MOVE IN DIRECTION");
-
         switch (direction) {
+
+            case UP:
+                moveUp(distance);
+                break;
+            case DOWN:
+                moveDown(distance);
+                break;
             case LEFT:
                 moveLeft(distance);
-                System.out.println("Left - MoveInDirection");
                 break;
             case RIGHT:
                 moveRight(distance);
-                System.out.println("Right - MoveInDirection");
                 break;
         }
 
         int dx = grid.columnToX(getCol()) - grid.columnToX(x);
         int dy = grid.rowToY(getRow()) - grid.rowToY(y);
 
-        System.out.println("Translate");
-
         object.translate(dx, dy);
+    }
+
+    private void moveUp(int dist) {
+
+        int maxRowsUp = Math.min(dist, getRow());
+        setPos(getCol(), getRow() - maxRowsUp);
 
     }
 
-    public void moveLeft(int dist) {
+    private void moveDown(int dist) {
 
-        System.out.println("<------------------>---------------------->" + getCol());
-        int maxRowsLeft = dist < getCol() ? dist : getCol();
+        int maxRowsDown = Math.min(getGrid().getRows() - (getRow() + 1), dist);
+        setPos(getCol(), getRow() + maxRowsDown);
+
+    }
+
+    private void moveLeft(int dist) {
+
+        int maxRowsLeft = Math.min(dist, getCol());
         setPos(getCol() - maxRowsLeft, getRow());
-        System.out.println(maxRowsLeft + "----------->" + getCol() + " " + dist);
+
     }
 
-    public void moveRight(int dist) {
-       int maxRowsRight = dist > getGrid().getCols() - (getCol() + 1) ? getGrid().getCols() - (getCol() + 1) : dist;
+    private void moveRight(int dist) {
+
+        int maxRowsRight = Math.min(getGrid().getCols() - (getCol() + 1), dist);
         setPos(getCol() + maxRowsRight, getRow());
-        System.out.println(maxRowsRight + "---------->");
     }
 }

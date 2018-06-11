@@ -9,6 +9,7 @@ public abstract class GameObjects implements Destroyable {
     private SimplegfxGridPosition position;
     private boolean hitted;
     private SimplegfxGrid grid;
+    private int directionChangeLevel = 8;
 
     protected GridDirection currentDirection;
 
@@ -16,7 +17,7 @@ public abstract class GameObjects implements Destroyable {
         this.position = gridPosition;
         this.hitted = false;
 
-        currentDirection = GridDirection.values() [(int) (Math.random() * GridDirection.values().length)];
+        currentDirection = GridDirection.values()[(int) (Math.random() * GridDirection.values().length)];
     }
 
     public boolean isHitted() {
@@ -52,33 +53,63 @@ public abstract class GameObjects implements Destroyable {
     }
 
     public void move() {
-        translate(currentDirection, 1);
+        translate(chooseDirection(), 1);
     }
 
-    public void translate (GridDirection direction, int distance) {
+    public GridDirection chooseDirection() {
+
+        // Let's move in the same direction by default
+        GridDirection newDirection = currentDirection;
+
+        // Sometimes, we want to change direction...
+        if (Math.random() > ((double) directionChangeLevel) / 10) {
+            newDirection = GridDirection.values()[(int) (Math.random() * GridDirection.values().length)];
+
+            // but we do not want to perform U turns..
+            if (newDirection.isOpposite(currentDirection)) {
+                return chooseDirection();
+            }
+        }
+        return newDirection;
+    }
+
+    public void translate(GridDirection direction, int distance) {
         GridDirection newDirection = direction;
 
-        if (isOnLimit()) {
-            System.out.println("-----------------------------------------------ISONLIMIT");
+        // Perform a U turn if we have bumped against the wall
+        if (isHittingWall()) {
             newDirection = direction.oppositeDirection();
         }
+
+        // Accelerate in the choosen direction
+        this.currentDirection = newDirection;
 
         getPos().moveInDirection(newDirection, distance);
     }
 
-    public boolean isOnLimit() {
+
+    public boolean isHittingWall() {
 
         switch (currentDirection) {
             case LEFT:
-                if (getPos().getCol() == 0) {
+                if (getPos().getCol() == 10) {
                     return true;
                 }
                 break;
             case RIGHT:
-                if (getPos().getCol() == grid.getCols() - 1) {
+                if (getPos().getCol() >= grid.getCols() - 10) {
                     return true;
                 }
                 break;
+            case UP:
+                if (getPos().getRow() == 3) {
+                    return true;
+                }
+                break;
+            case DOWN:
+                if (getPos().getRow() >= grid.getRows() - 30) {
+                    return true;
+                }
         }
         return false;
 
