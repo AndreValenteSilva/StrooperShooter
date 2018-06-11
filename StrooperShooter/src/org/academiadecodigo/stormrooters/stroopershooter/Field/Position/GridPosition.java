@@ -15,6 +15,5 @@ public interface GridPosition {
 
     void hide();
 
-    boolean equals (GridPosition position);
 
 }

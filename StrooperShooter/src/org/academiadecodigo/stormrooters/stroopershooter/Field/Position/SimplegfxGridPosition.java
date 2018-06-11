@@ -2,6 +2,7 @@ package org.academiadecodigo.stormrooters.stroopershooter.Field.Position;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.GridDirection;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 
 public class SimplegfxGridPosition implements GridPosition {
@@ -10,12 +11,14 @@ public class SimplegfxGridPosition implements GridPosition {
     private int row;
     private int width;
     private int height;
+    private SimplegfxGrid grid;
     private Rectangle object;
 
     public SimplegfxGridPosition(SimplegfxGrid grid) {
 
         int size = (int) (Math.random() * 3 + 1); //generate a random number to change the objects size
 
+        this.grid = grid;
         this.col = (int) (Math.random() * (grid.getCols() - 10));
         this.row = (int) (Math.random() * (grid.getRows() - 26));
         this.height = 30 * size;
@@ -72,6 +75,10 @@ public class SimplegfxGridPosition implements GridPosition {
         return height;
     }
 
+    public SimplegfxGrid getGrid() {
+        return grid;
+    }
+
     @Override
     public void show() {
         object.fill();
@@ -83,8 +90,43 @@ public class SimplegfxGridPosition implements GridPosition {
         object.delete();
     }
 
-    @Override
-    public boolean equals(GridPosition position) {
-        return false;
+    public void moveInDirection(GridDirection direction, int distance) {
+        int x = getCol();
+        int y = getRow();
+
+        System.out.println("X " + x + " Y " + y + " MOVE IN DIRECTION");
+
+        switch (direction) {
+            case LEFT:
+                moveLeft(distance);
+                System.out.println("Left - MoveInDirection");
+                break;
+            case RIGHT:
+                moveRight(distance);
+                System.out.println("Right - MoveInDirection");
+                break;
+        }
+
+        int dx = grid.columnToX(getCol()) - grid.columnToX(x);
+        int dy = grid.rowToY(getRow()) - grid.rowToY(y);
+
+        System.out.println("Translate");
+
+        object.translate(dx, dy);
+
+    }
+
+    public void moveLeft(int dist) {
+
+        System.out.println("<------------------>---------------------->" + getCol());
+        int maxRowsLeft = dist < getCol() ? dist : getCol();
+        setPos(getCol() - maxRowsLeft, getRow());
+        System.out.println(maxRowsLeft + "----------->" + getCol() + " " + dist);
+    }
+
+    public void moveRight(int dist) {
+       int maxRowsRight = dist > getGrid().getCols() - (getCol() + 1) ? getGrid().getCols() - (getCol() + 1) : dist;
+        setPos(getCol() + maxRowsRight, getRow());
+        System.out.println(maxRowsRight + "---------->");
     }
 }

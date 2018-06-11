@@ -11,7 +11,6 @@ public class Weapon {
         this.bulletNumber = 5;
     }
 
-
     public void shoot(GameObjects objects) {
 
         if (bulletNumber > 0) {
@@ -21,16 +20,13 @@ public class Weapon {
         }
     }
 
-
     public void reload() {
 
         bulletNumber = 5;
     }
 
-
     public int getBulletNumber() {
 
         return bulletNumber;
     }
-
 }

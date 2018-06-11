@@ -1,6 +1,5 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Target;
@@ -10,7 +9,7 @@ public class Game {
 
     private CountDownTimer timer;
     private Player player;
-    private Grid grid;
+    private SimplegfxGrid grid;
     private Weapon sniper;
     private Target[] objects;
     private boolean gameInit;
@@ -34,17 +33,18 @@ public class Game {
         //we need to find a way to create a range
         for (int i = 0; i < objects.length; i++) {
             objects[i] = new Enemy(grid.makeGridPosition());
+            objects[i].setGrid(grid);
 
             if (i != 0) {
                 checkPosition(i);
             }
         }
+
+        moveTarget();
         start();
     }
 
     private void checkPosition(int arrayPosition) {
-
-
 /*        for (int j = 0; arrayPosition >= j; j++) {
 
             if (objects[arrayPosition].getPos().equals(objects[arrayPosition].getPos()) && arrayPosition != j) {
@@ -66,6 +66,8 @@ public class Game {
         while (gameOn) {
             Thread.sleep(500);
 
+            moveTarget();
+
             for (Target object : objects) {
 
                 if (player.getX() >= object.getX() && player.getX() <= object.getX() + object.getWidth() &&
@@ -77,6 +79,8 @@ public class Game {
                 }
             }
         }
+
+
 //        System.out.println("object----" + objects[0].getX() + "..." + objects[0].getY());
 
     }
@@ -87,6 +91,9 @@ public class Game {
 
 
     public void moveTarget() {
+            for (Target c : objects) {
+                c.move();
+        }
     }
 
 
