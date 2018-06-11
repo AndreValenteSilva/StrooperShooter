@@ -11,12 +11,16 @@ public class Weapon {
         this.bulletNumber = 5;
     }
 
-    public void shoot(GameObjects objects) {
+    public void shoot() {
 
         if (bulletNumber > 0) {
             bulletNumber--;
             System.out.println("bullets: " + bulletNumber);
-            objects.hit();
+        } else {
+            reload();
+            bulletNumber--;
+            System.out.println("Reload");
+            System.out.println("bullets: " + bulletNumber);
         }
     }
 
