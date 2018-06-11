@@ -71,8 +71,10 @@ public class Game {
 
                 if (player.getX() >= object.getX() && player.getX() <= object.getX() + object.getWidth() &&
                         player.getY() >= object.getY() && player.getY() <= object.getY() + object.getHeigth()) {
+                    //player.shootWeapon();
                     object.hit();
                     player.setScore(object.getPoints());
+                    object.hide();
                     player.reset();
                 }
             }

@@ -17,6 +17,11 @@ public class Weapon {
         if (bulletNumber > 0) {
             bulletNumber--;
             System.out.println("bullets: " + bulletNumber);
+        } else {
+            reload();
+            bulletNumber--;
+            System.out.println("Reload");
+            System.out.println("bullets: " + bulletNumber);
         }
     }
 
