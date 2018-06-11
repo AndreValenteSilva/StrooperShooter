@@ -39,7 +39,7 @@ public class SimplegfxGridPosition implements GridPosition {
         /** this set character pictues. needs to insert a math random to choose a pick
          *
          */
-        this.object = new Picture(x,y,"char7Small.png");
+        this.object = new Picture(x,y,"char3Small.png");
         System.out.println(getX() + "......" + getY());
 
         show();
@@ -57,7 +57,7 @@ public class SimplegfxGridPosition implements GridPosition {
          *
          */
         //this.object = new Rectangle(x, y, grid.getCellsize(), grid.getCellsize());
-        this.object = new Picture(x,y,"char7Small.png");
+        this.object = new Picture(x,y,"char3Small.png");
         System.out.println(getX());
     }
 
