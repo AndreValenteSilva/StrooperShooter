@@ -7,13 +7,9 @@ public abstract class Target extends GameObjects {
 
     private Rectangle target;
 
-
     public Target(SimplegfxGridPosition gridPosition) {
 
         super(gridPosition);
-        /*target = new Rectangle(g, 40, 30);
-        target.fill();
-        target.setColor(Color.BLUE);*/
     }
 
 

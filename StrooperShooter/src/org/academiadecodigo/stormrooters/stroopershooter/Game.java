@@ -36,9 +36,11 @@ public class Game {
                 case 0:
                     objects[i] = new Enemy(grid.makeGridPosition(warrior));
                     objects[i].setGrid(grid);
+                    break;
                 case 1:
                     objects[i] = new TimeBox(grid.makeGridPosition(warrior));
                     objects[i].setGrid(grid);
+                    break;
             }
         }
 
@@ -55,7 +57,7 @@ public class Game {
         objectTimer.countdownObject();
 
         while (gameOn) {
-            Thread.sleep(100);
+            Thread.sleep(200);
 
             moveTarget();
 

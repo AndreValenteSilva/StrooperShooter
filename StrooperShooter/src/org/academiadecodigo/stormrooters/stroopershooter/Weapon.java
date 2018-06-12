@@ -20,9 +20,7 @@ public class Weapon {
             bulletNumber--;
             Picture shot = new Picture(62, 0, "laser.png");
 
-            for (int i = 0; i < 10000; i++) {
-                shot.draw();
-            }
+            shot.draw();
             shot.delete();
             System.out.println("bullets: " + bulletNumber);
         } else {

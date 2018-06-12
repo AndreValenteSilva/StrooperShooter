@@ -29,18 +29,13 @@ public class SimplegfxGridPosition implements GridPosition {
         int x = grid.columnToX(getCol());
         int y = grid.rowToY(getRow());
 
-        //x ternary verifying that the object is not created closer to the edge
-        //this.object = new Rectangle(x < 125 ? 100 : x, y, height, width);
-
-        /** this set character pictues. needs to insert a math random to choose a pick
-         *
-         */
         switch (warrior) {
             case 0:
                 this.object = new Picture(x,y,"char3Small.png");
                 break;
             case 1:
                 this.object = new Picture(x,y,"char2Small.png");
+                break;
         }
         System.out.println(getX() + "......" + getY());
 

@@ -24,4 +24,9 @@ public class TimeBox extends Box {
 
         return this.bonus;
     }*/
+
+    public void hit() {
+        setHitted();
+        hide();
+    }
 }

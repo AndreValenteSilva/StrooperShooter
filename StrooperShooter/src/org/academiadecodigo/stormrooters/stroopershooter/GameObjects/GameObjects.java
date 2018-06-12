@@ -59,7 +59,7 @@ public abstract class GameObjects implements Destroyable {
     }
 
     public void move() {
-        translate(chooseDirection(), 1);
+        translate(chooseDirection(), 2);
     }
 
     public GridDirection chooseDirection() {
