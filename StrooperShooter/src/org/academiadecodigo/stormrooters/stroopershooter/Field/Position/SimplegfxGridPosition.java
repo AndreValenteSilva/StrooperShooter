@@ -14,8 +14,9 @@ public class SimplegfxGridPosition implements GridPosition {
     private int height;
     private SimplegfxGrid grid;
     private Picture object;
-    private String [] warriors = {"chewie.png", "luke.png", "obi.png" };
-    private String [] friendsImg = {"vader.png", "storm.png", "tasker.png"};
+    private String[] warriors = {"chewie.png", "luke.png", "obi.png"};
+    private String[] friendsImg = {"vader.png", "storm.png", "tasker.png"};
+    // private String[] timeBox = {"c3po.png"}; character for timeBox. Is a golden object
 
     public SimplegfxGridPosition(SimplegfxGrid grid, int warrior) {
 
@@ -32,11 +33,14 @@ public class SimplegfxGridPosition implements GridPosition {
 
         switch (warrior) {
             case 0:
-                this.object = new Picture(x,y,warriors[warriorImg]);
+                this.object = new Picture(x, y, warriors[warriorImg]);
                 break;
             case 1:
-                this.object = new Picture(x,y,friendsImg[warriorImg]);
+                this.object = new Picture(x, y, friendsImg[warriorImg]);
                 break;
+            /*case 2:
+                this.object = new Picture(x, y, timeBox[0]);   
+                break;*/
         }
 
         show();
