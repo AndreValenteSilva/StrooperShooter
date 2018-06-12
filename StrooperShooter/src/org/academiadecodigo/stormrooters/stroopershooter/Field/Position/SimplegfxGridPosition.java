@@ -14,10 +14,9 @@ public class SimplegfxGridPosition implements GridPosition {
     private int height;
     private SimplegfxGrid grid;
     //private Rectangle object;
-    private Picture picture;
     private Picture object;
 
-    public SimplegfxGridPosition(SimplegfxGrid grid) {
+    public SimplegfxGridPosition(SimplegfxGrid grid, int warrior) {
 
         int size = (int) (Math.random() * 3 + 1); //generate a random number to change the objects size
 
@@ -30,16 +29,19 @@ public class SimplegfxGridPosition implements GridPosition {
         int x = grid.columnToX(getCol());
         int y = grid.rowToY(getRow());
 
-
-
         //x ternary verifying that the object is not created closer to the edge
         //this.object = new Rectangle(x < 125 ? 100 : x, y, height, width);
-
 
         /** this set character pictues. needs to insert a math random to choose a pick
          *
          */
-        this.object = new Picture(x,y,"char3Small.png");
+        switch (warrior) {
+            case 0:
+                this.object = new Picture(x,y,"char3Small.png");
+                break;
+            case 1:
+                this.object = new Picture(x,y,"char2Small.png");
+        }
         System.out.println(getX() + "......" + getY());
 
         show();

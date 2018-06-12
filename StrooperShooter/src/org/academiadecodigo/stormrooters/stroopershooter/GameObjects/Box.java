@@ -1,6 +1,5 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.SimplegfxGridPosition;
 
 public abstract class Box extends GameObjects {
@@ -13,8 +12,10 @@ public abstract class Box extends GameObjects {
         this.hitCounter = 0;
     }
 
+    public abstract int getPoints();
+
     //gives bonus when destroyed
-    public abstract int getBonus();
+    //public abstract int getBonus();
 
 
     public void hit() {
@@ -26,7 +27,7 @@ public abstract class Box extends GameObjects {
             System.out.println("[BOX] Box was isHitted: " + hitCounter + "\n");
 
         } else {
-            getBonus();
+            getPoints();
 
             System.out.println("[BOX] box explode \n");
 

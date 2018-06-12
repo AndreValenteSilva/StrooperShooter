@@ -9,7 +9,7 @@ public abstract class GameObjects implements Destroyable {
     private SimplegfxGridPosition position;
     private boolean hitted;
     private SimplegfxGrid grid;
-    private int directionChangeLevel = 8;
+    private int directionChangeLevel = 5;
 
     protected GridDirection currentDirection;
 
@@ -19,6 +19,8 @@ public abstract class GameObjects implements Destroyable {
 
         currentDirection = GridDirection.values()[(int) (Math.random() * GridDirection.values().length)];
     }
+
+    public abstract int getPoints();
 
     public boolean isHitted() {
         return hitted;

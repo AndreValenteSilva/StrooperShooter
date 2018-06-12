@@ -8,7 +8,7 @@ import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.Simplegf
 /**
  * Created by codecadets on 09/06/2018.
  */
-public class SimplegfxGrid implements Grid {
+public class SimplegfxGrid  {
 
     private int cols;
     private int rows;
@@ -22,21 +22,17 @@ public class SimplegfxGrid implements Grid {
         this.rows = rows;
     }
 
-    @Override
     public void init() {
 
         //this.grid = new Rectangle(PADDING, PADDING, cols * CELLSIZE, rows * CELLSIZE);
         this.grid = new Picture(PADDING, PADDING,"field.png");
         this.grid.draw();
-
     }
 
-    @Override // creates a random SimplegfxGridPosition
-    public SimplegfxGridPosition makeGridPosition() {
-        return new SimplegfxGridPosition(this);
+    public SimplegfxGridPosition makeGridPosition(int warrior) {
+        return new SimplegfxGridPosition(this, warrior);
     }
 
-    @Override
     public SimplegfxGridPosition makeGridPosition(int col, int row) {
         return new SimplegfxGridPosition(col, row, this);
     }
