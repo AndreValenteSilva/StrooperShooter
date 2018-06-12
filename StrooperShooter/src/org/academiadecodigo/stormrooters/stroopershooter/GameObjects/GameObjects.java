@@ -40,6 +40,10 @@ public abstract class GameObjects implements Destroyable {
         return position;
     }
 
+    public void hide() {
+        position.hide();
+    }
+
     public int getWidth() {
         return position.getWidth();
     }

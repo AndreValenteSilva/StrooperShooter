@@ -1,7 +1,10 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
+
+import java.sql.SQLOutput;
 
 public class Weapon {
 
@@ -11,12 +14,22 @@ public class Weapon {
         this.bulletNumber = 5;
     }
 
-    public void shoot(GameObjects objects) {
+    public void shoot() {
 
         if (bulletNumber > 0) {
             bulletNumber--;
+            Picture shot = new Picture(62, 0, "laser.png");
+
+            for (int i = 0; i < 10000; i++) {
+                shot.draw();
+            }
+            shot.delete();
             System.out.println("bullets: " + bulletNumber);
-            objects.hit();
+        } else {
+            reload();
+            bulletNumber--;
+            System.out.println("Reload");
+            System.out.println("bullets: " + bulletNumber);
         }
     }
 

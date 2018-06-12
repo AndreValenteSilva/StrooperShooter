@@ -27,31 +27,13 @@ public class Game {
 
         grid.init();
 
-        //for loop to check if there two objects on the same position
-        //not working
-        //they would need to be in the exact x and y to accept it as same position
-        //we need to find a way to create a range
         for (int i = 0; i < objects.length; i++) {
             objects[i] = new Enemy(grid.makeGridPosition());
             objects[i].setGrid(grid);
-
-            if (i != 0) {
-                checkPosition(i);
-            }
         }
 
         moveTarget();
         start();
-    }
-
-    private void checkPosition(int arrayPosition) {
-/*        for (int j = 0; arrayPosition >= j; j++) {
-
-            if (objects[arrayPosition].getPos().equals(objects[arrayPosition].getPos()) && arrayPosition != j) {
-                objects[arrayPosition] = new Enemy(grid.makeGridPosition());
-            }
-        }
- */
     }
 
     public void start() throws InterruptedException {
@@ -62,9 +44,8 @@ public class Game {
         CountDownTimer objectTimer = new CountDownTimer(5);
         objectTimer.countdownObject();
 
-
         while (gameOn) {
-            Thread.sleep(1000);
+            Thread.sleep(100);
 
             moveTarget();
 
@@ -72,23 +53,14 @@ public class Game {
 
                 if (player.getX() >= object.getX() && player.getX() <= object.getX() + object.getWidth() &&
                         player.getY() >= object.getY() && player.getY() <= object.getY() + object.getHeigth()) {
-                    player.shootWeapon(object);
+                    //player.shootWeapon();
                     object.hit();
                     player.setScore(object.getPoints());
                     player.reset();
                 }
             }
         }
-
-
-//        System.out.println("object----" + objects[0].getX() + "..." + objects[0].getY());
-
     }
-
-    public int givePoints(int position) {
-        return objects[position].getPoints();
-    }
-
 
     public void moveTarget() {
             for (Target c : objects) {

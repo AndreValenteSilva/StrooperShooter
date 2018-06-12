@@ -21,5 +21,6 @@ public abstract class Target extends GameObjects {
 
     public void hit() {
         setHitted();
+        hide();
     }
 }

@@ -14,7 +14,8 @@ public class SimplegfxGrid implements Grid {
     private int rows;
     public static final int PADDING = 10;
     public static final int CELLSIZE = 10;
-    private Rectangle grid;
+    //private Rectangle grid;
+    private Picture grid;
 
     public SimplegfxGrid(int cols, int rows) {
         this.cols = cols;
@@ -23,8 +24,11 @@ public class SimplegfxGrid implements Grid {
 
     @Override
     public void init() {
-        this.grid = new Rectangle(PADDING, PADDING, cols * CELLSIZE, rows * CELLSIZE);
+
+        //this.grid = new Rectangle(PADDING, PADDING, cols * CELLSIZE, rows * CELLSIZE);
+        this.grid = new Picture(PADDING, PADDING,"field.png");
         this.grid.draw();
+
     }
 
     @Override // creates a random SimplegfxGridPosition

@@ -2,6 +2,7 @@ package org.academiadecodigo.stormrooters.stroopershooter.Field.Position;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.GridDirection;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 
@@ -12,7 +13,9 @@ public class SimplegfxGridPosition implements GridPosition {
     private int width;
     private int height;
     private SimplegfxGrid grid;
-    private Rectangle object;
+    //private Rectangle object;
+    private Picture picture;
+    private Picture object;
 
     public SimplegfxGridPosition(SimplegfxGrid grid) {
 
@@ -21,14 +24,22 @@ public class SimplegfxGridPosition implements GridPosition {
         this.grid = grid;
         this.col = (int) (Math.random() * (grid.getCols() - 10));
         this.row = (int) (Math.random() * (grid.getRows() - 26));
-        this.height = 30 * size;
-        this.width = 30 * size;
+        this.height = 120;
+        this.width = 78;
 
         int x = grid.columnToX(getCol());
         int y = grid.rowToY(getRow());
 
+
+
         //x ternary verifying that the object is not created closer to the edge
-        this.object = new Rectangle(x < 125 ? 100 : x, y, height, width);
+        //this.object = new Rectangle(x < 125 ? 100 : x, y, height, width);
+
+
+        /** this set character pictues. needs to insert a math random to choose a pick
+         *
+         */
+        this.object = new Picture(x,y,"char3Small.png");
         System.out.println(getX() + "......" + getY());
 
         show();
@@ -41,7 +52,12 @@ public class SimplegfxGridPosition implements GridPosition {
         int x = grid.columnToX(getCol() - 10);
         int y = grid.rowToY(getRow() - 20);
 
-        this.object = new Rectangle(x, y, grid.getCellsize(), grid.getCellsize());
+
+        /**set postion of the characters on the grid
+         *
+         */
+        //this.object = new Rectangle(x, y, grid.getCellsize(), grid.getCellsize());
+        this.object = new Picture(x,y,"char3Small.png");
         System.out.println(getX());
     }
 
@@ -81,8 +97,9 @@ public class SimplegfxGridPosition implements GridPosition {
 
     @Override
     public void show() {
-        object.fill();
-        object.setColor(Color.BLUE);
+        //object.fill();
+        //object.setColor(Color.BLUE);
+        object.draw();
     }
 
     @Override
