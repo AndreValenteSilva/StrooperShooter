@@ -53,11 +53,8 @@ public class Game {
         timer = new CountDownTimer(30);
         timer.startCountTimer();
 
-        CountDownTimer objectTimer = new CountDownTimer(5);
-        objectTimer.countdownObject();
-
         while (gameOn) {
-            Thread.sleep(200);
+            Thread.sleep(500);
 
             moveTarget();
 

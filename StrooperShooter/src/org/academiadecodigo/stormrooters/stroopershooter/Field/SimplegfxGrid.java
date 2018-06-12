@@ -33,10 +33,6 @@ public class SimplegfxGrid  {
         return new SimplegfxGridPosition(this, warrior);
     }
 
-    public SimplegfxGridPosition makeGridPosition(int col, int row) {
-        return new SimplegfxGridPosition(col, row, this);
-    }
-
     public int getCellsize() {
         return CELLSIZE;
     }

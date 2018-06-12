@@ -13,12 +13,11 @@ public class SimplegfxGridPosition implements GridPosition {
     private int width;
     private int height;
     private SimplegfxGrid grid;
-    //private Rectangle object;
     private Picture object;
+    private String [] warriors = {"chewie.png", "luke.png", "obi.png" };
+    private String [] friendsImg = {"vader.png", "storm.png", "tasker.png"};
 
     public SimplegfxGridPosition(SimplegfxGrid grid, int warrior) {
-
-        int size = (int) (Math.random() * 3 + 1); //generate a random number to change the objects size
 
         this.grid = grid;
         this.col = (int) (Math.random() * (grid.getCols() - 10));
@@ -29,33 +28,18 @@ public class SimplegfxGridPosition implements GridPosition {
         int x = grid.columnToX(getCol());
         int y = grid.rowToY(getRow());
 
+        int warriorImg = (int) (Math.random() * 3);
+
         switch (warrior) {
             case 0:
-                this.object = new Picture(x,y,"char3Small.png");
+                this.object = new Picture(x,y,warriors[warriorImg]);
                 break;
             case 1:
-                this.object = new Picture(x,y,"char2Small.png");
+                this.object = new Picture(x,y,friendsImg[warriorImg]);
                 break;
         }
-        System.out.println(getX() + "......" + getY());
 
         show();
-    }
-
-    public SimplegfxGridPosition(int col, int row, SimplegfxGrid grid) {
-        this.col = col;
-        this.row = row;
-
-        int x = grid.columnToX(getCol() - 10);
-        int y = grid.rowToY(getRow() - 20);
-
-
-        /**set postion of the characters on the grid
-         *
-         */
-        //this.object = new Rectangle(x, y, grid.getCellsize(), grid.getCellsize());
-        this.object = new Picture(x,y,"char3Small.png");
-        System.out.println(getX());
     }
 
     @Override
@@ -94,8 +78,6 @@ public class SimplegfxGridPosition implements GridPosition {
 
     @Override
     public void show() {
-        //object.fill();
-        //object.setColor(Color.BLUE);
         object.draw();
     }
 
