@@ -61,8 +61,8 @@ public class Game {
             for (GameObjects object : objects) {
 
                 if (player.getX() >= object.getX() && player.getX() <= object.getX() + object.getWidth() &&
-                        player.getY() >= object.getY() && player.getY() <= object.getY() + object.getHeigth()) {
-                    //player.shootWeapon();
+                        player.getY() >= object.getY() && player.getY() <= object.getY() + object.getHeigth()
+                        && player.getBulletNumber() > 0) {
                     object.hit();
                     player.setScore(object.getPoints());
                     player.reset();

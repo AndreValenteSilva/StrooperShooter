@@ -15,7 +15,6 @@ public class Player {
     private String name;
     private int score;
     private Weapon sniper;
-    private GameObjects objects;
     private int X;
     private int Y;
     private WeaponControl weaponControl;
@@ -24,19 +23,18 @@ public class Player {
     public Player(String name, Weapon weapon) {
 
         this.name = name;
-        this.sniper = new Weapon();
+        this.sniper = weapon;
         this.weaponControl = new WeaponControl();
         this.reloadControl = new ReloadControl();
     }
 
-    public void moveSight() {
-        // mouseHandler logic
-    }
-
     public void shootWeapon() {
 
-        sniper.shoot();
-        // else say reload
+        if (sniper.getBulletNumber() > 0) {
+            sniper.shoot();
+        } else {
+            System.out.println("NO MORE BULLETS!!");
+        }
     }
 
     public void reload() {
@@ -56,6 +54,10 @@ public class Player {
     public void reset() {
         this.X = 0;
         this.Y = 0;
+    }
+
+    public int getBulletNumber() {
+        return sniper.getBulletNumber();
     }
 
     //SETTER
