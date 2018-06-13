@@ -62,14 +62,16 @@ public class Player {
         return sniper.getBulletNumber();
     }
 
-    //SETTER
     public void setScore(int points) {
 
         this.score += points;
         System.out.println("score: " + score);
     }
 
-    //NESTED NESTED NESTED
+    public int getScore() {
+        return score;
+    }
+
     public class WeaponControl implements MouseHandler {
 
         private Mouse handler;
