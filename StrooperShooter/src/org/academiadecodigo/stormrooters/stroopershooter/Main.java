@@ -7,6 +7,7 @@ public class Main {
        Game g = new Game(20);
 
        g.init();
+       g.start();
 
     }
 }
