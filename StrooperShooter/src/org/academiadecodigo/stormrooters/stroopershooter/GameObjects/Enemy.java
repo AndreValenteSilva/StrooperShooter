@@ -20,7 +20,7 @@ public class Enemy extends GameObjects {
     public int getPoints() {
         if (fuckedUpCounter < 1) {
             fuckedUpCounter++;
-            System.out.println("You bastard!");
+            System.out.println("You hit a enemy!");
             return this.points;
         }
         return 0;
