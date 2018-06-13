@@ -20,7 +20,6 @@ public class Player {
     private int Y;
     private WeaponControl weaponControl;
     private ReloadControl reloadControl;
-    private Picture shoot;
 
     public Player(String name, Weapon weapon) {
 
@@ -62,14 +61,16 @@ public class Player {
         return sniper.getBulletNumber();
     }
 
-    //SETTER
     public void setScore(int points) {
 
         this.score += points;
         System.out.println("score: " + score);
     }
 
-    //NESTED NESTED NESTED
+    public int getScore() {
+        return score;
+    }
+
     public class WeaponControl implements MouseHandler {
 
         private Mouse handler;
@@ -92,14 +93,6 @@ public class Player {
             X = (int) e.getX();
             Y = (int) e.getY() - 25;
             shootWeapon();
-
-            /** need to improve
-             *
-             */
-            shoot = new Picture(e.getX(), e.getY(), "/Users/codecadet/Desktop/STrooperShooter_v1/StrooperShooter/resources/laser.png");
-            shoot.draw();
-
-
         }
 
         @Override
@@ -109,37 +102,24 @@ public class Player {
 
     public class ReloadControl implements KeyboardHandler {
 
-        private Keyboard key;
-        private KeyboardEvent spaceKey;
-
-
         public ReloadControl() {
 
-            this.key = new Keyboard(this);
-            this.spaceKey = new KeyboardEvent();
+            Keyboard keyboard = new Keyboard(this);
 
-            setEvent();
-            addEventListener();
-        }
-
-
-        public void setEvent() {
-
-            spaceKey.setKey(KeyboardEvent.KEY_SPACE);
-            spaceKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        }
-
-        public void addEventListener() {
-
-            key.addEventListener(spaceKey);
+            KeyboardEvent space = new KeyboardEvent();
+            space.setKey(KeyboardEvent.KEY_SPACE);
+            space.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            keyboard.addEventListener(space);
         }
 
         @Override
         public void keyPressed(KeyboardEvent e) {
-            System.out.println("thaReaLoad");
-            reload();
+            switch (e.getKey()) {
+                case KeyboardEvent.KEY_SPACE:
+                    reload();
+                    System.out.println("thaReaLoad");
+            }
         }
-
 
         @Override
         public void keyReleased(KeyboardEvent e) {
