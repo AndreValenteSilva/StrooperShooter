@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.GridDirection;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 
-public class SimplegfxGridPosition implements GridPosition {
+public class SimplegfxGridPosition {
 
     private int col;
     private int row;
@@ -46,7 +46,6 @@ public class SimplegfxGridPosition implements GridPosition {
         show();
     }
 
-    @Override
     public void setPos(int col, int row) {
         this.col = col;
         this.row = row;
@@ -80,12 +79,12 @@ public class SimplegfxGridPosition implements GridPosition {
         return grid;
     }
 
-    @Override
+
     public void show() {
         object.draw();
     }
 
-    @Override
+
     public void hide() {
         object.delete();
     }

@@ -1,8 +1,6 @@
 package org.academiadecodigo.stormrooters.stroopershooter.Field;
 
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.GridPosition;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.SimplegfxGridPosition;
 
 /**
