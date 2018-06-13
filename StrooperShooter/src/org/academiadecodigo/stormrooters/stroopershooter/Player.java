@@ -8,6 +8,7 @@ import org.academiadecodigo.simplegraphics.mouse.Mouse;
 import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.simplegraphics.mouse.MouseEventType;
 import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 
 public class Player {
@@ -19,6 +20,7 @@ public class Player {
     private int Y;
     private WeaponControl weaponControl;
     private ReloadControl reloadControl;
+    private Picture shoot;
 
     public Player(String name, Weapon weapon) {
 
@@ -85,11 +87,19 @@ public class Player {
         }
 
         @Override
-        public void mouseClicked(MouseEvent e){
+        public void mouseClicked(MouseEvent e) {
 
             X = (int) e.getX();
             Y = (int) e.getY() - 25;
             shootWeapon();
+
+            /** need to improve
+             *
+             */
+            shoot = new Picture(e.getX(), e.getY(), "/Users/codecadet/Desktop/STrooperShooter_v1/StrooperShooter/resources/laser.png");
+            shoot.draw();
+
+
         }
 
         @Override
@@ -119,7 +129,7 @@ public class Player {
             spaceKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         }
 
-        public void addEventListener(){
+        public void addEventListener() {
 
             key.addEventListener(spaceKey);
         }
