@@ -1,12 +1,12 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.SimplegfxGridPosition;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.GridPosition;
 
 public class Enemy extends Target{
     private int points;
     private int fuckedUpCounter = 0;
 
-    public Enemy(SimplegfxGridPosition gridPosition) {
+    public Enemy(GridPosition gridPosition) {
         super(gridPosition);
         this.points = 5;
     }

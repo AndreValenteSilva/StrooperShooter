@@ -1,24 +1,20 @@
-package org.academiadecodigo.stormrooters.stroopershooter.Field.Position;
+package org.academiadecodigo.stormrooters.stroopershooter.Field;
 
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-import org.academiadecodigo.stormrooters.stroopershooter.Field.GridDirection;
-import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
 
-public class SimplegfxGridPosition {
+public class GridPosition {
 
     private int col;
     private int row;
     private int width;
     private int height;
-    private SimplegfxGrid grid;
+    private Grid grid;
     private Picture object;
     private String[] warriors = {"chewie.png", "luke.png", "obi.png"};
     private String[] friendsImg = {"vader.png", "storm.png", "tasker.png"};
     // private String[] timeBox = {"c3po.png"}; character for timeBox. Is a golden object
 
-    public SimplegfxGridPosition(SimplegfxGrid grid, int warrior) {
+    public GridPosition(Grid grid, int warrior) {
 
         this.grid = grid;
         this.col = (int) (Math.random() * (grid.getCols() - 10));
@@ -75,7 +71,7 @@ public class SimplegfxGridPosition {
         return height;
     }
 
-    public SimplegfxGrid getGrid() {
+    public Grid getGrid() {
         return grid;
     }
 

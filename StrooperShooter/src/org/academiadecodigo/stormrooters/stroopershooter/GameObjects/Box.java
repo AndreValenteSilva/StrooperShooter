@@ -1,26 +1,22 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.SimplegfxGridPosition;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.GridPosition;
 
 public abstract class Box extends GameObjects {
 
-    private int timer; //var type might need to be changed
     private int hitCounter;
+    private int boxArmour = 2;
 
-    public Box(SimplegfxGridPosition gridPosition) {
+    public Box(GridPosition gridPosition) {
         super(gridPosition);
         this.hitCounter = 0;
     }
 
     public abstract int getPoints();
 
-    //gives bonus when destroyed
-    //public abstract int getBonus();
-
-
     public void hit() {
 
-        if (hitCounter <= GameObjectFactory.BOX_ARMOUR) {
+        if (hitCounter <= boxArmour) {
 
             hitCounter++;
 

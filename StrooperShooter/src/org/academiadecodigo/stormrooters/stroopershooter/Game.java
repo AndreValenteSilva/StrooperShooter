@@ -1,9 +1,8 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.SimplegfxGrid;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
-import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Target;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.TimeBox;
 import org.academiadecodigo.stormrooters.stroopershooter.Timer.CountDownTimer;
 
@@ -11,7 +10,7 @@ public class Game {
 
     private CountDownTimer timer;
     private Player player;
-    private SimplegfxGrid grid;
+    private Grid grid;
     private Weapon sniper;
     private GameObjects[] objects;
     private boolean gameInit;
@@ -20,7 +19,7 @@ public class Game {
 
     public Game(int objectsNumber) {
         this.sniper = new Weapon();
-        this.grid = new SimplegfxGrid(124, 78);
+        this.grid = new Grid(124, 78);
         this.player = new Player("Batata", sniper);
         this.objects = new GameObjects[objectsNumber];
     }

@@ -1,13 +1,13 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.SimplegfxGridPosition;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.GridPosition;
 
 public abstract class Target extends GameObjects {
 
     private Rectangle target;
 
-    public Target(SimplegfxGridPosition gridPosition) {
+    public Target(GridPosition gridPosition) {
 
         super(gridPosition);
     }

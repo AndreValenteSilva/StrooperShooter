@@ -1,12 +1,13 @@
 package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Position.SimplegfxGridPosition;
+
+import org.academiadecodigo.stormrooters.stroopershooter.Field.GridPosition;
 
 public class TimeBox extends Box {
 
     private int bonus;
 
-    public TimeBox(SimplegfxGridPosition gridPosition) {
+    public TimeBox(GridPosition gridPosition) {
         super(gridPosition);
         this.bonus = 5;
     }
@@ -15,15 +16,6 @@ public class TimeBox extends Box {
     public int getPoints() {
         return this.bonus;
     }
-
-    /*@Override
-    public int getBonus() {
-
-        //adds bonus(5?)seconds to game timer
-        //time.delayTime;
-
-        return this.bonus;
-    }*/
 
     public void hit() {
         setHitted();
