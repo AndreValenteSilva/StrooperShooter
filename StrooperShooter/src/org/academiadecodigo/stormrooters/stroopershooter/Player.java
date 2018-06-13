@@ -20,7 +20,6 @@ public class Player {
     private int Y;
     private WeaponControl weaponControl;
     private ReloadControl reloadControl;
-    private Picture shoot;
 
     public Player(String name, Weapon weapon) {
 
@@ -103,37 +102,24 @@ public class Player {
 
     public class ReloadControl implements KeyboardHandler {
 
-        private Keyboard key;
-        private KeyboardEvent spaceKey;
-
-
         public ReloadControl() {
 
-            this.key = new Keyboard(this);
-            this.spaceKey = new KeyboardEvent();
+            Keyboard keyboard = new Keyboard(this);
 
-            setEvent();
-            addEventListener();
-        }
-
-
-        public void setEvent() {
-
-            spaceKey.setKey(KeyboardEvent.KEY_SPACE);
-            spaceKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        }
-
-        public void addEventListener() {
-
-            key.addEventListener(spaceKey);
+            KeyboardEvent space = new KeyboardEvent();
+            space.setKey(KeyboardEvent.KEY_SPACE);
+            space.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            keyboard.addEventListener(space);
         }
 
         @Override
         public void keyPressed(KeyboardEvent e) {
-            System.out.println("thaReaLoad");
-            reload();
+            switch (e.getKey()) {
+                case KeyboardEvent.KEY_SPACE:
+                    reload();
+                    System.out.println("thaReaLoad");
+            }
         }
-
 
         @Override
         public void keyReleased(KeyboardEvent e) {

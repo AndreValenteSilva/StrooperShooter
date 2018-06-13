@@ -25,7 +25,7 @@ public class Game {
         this.objects = new GameObjects[objectsNumber];
     }
 
-    public void init() {
+    public void init() throws InterruptedException {
 
         grid.init();
 
@@ -47,6 +47,7 @@ public class Game {
                     break;
             }
         }
+        start();
     }
 
     public void start() throws InterruptedException {
@@ -71,7 +72,6 @@ public class Game {
                 c.move();
         }
     }
-
 
     public String gameOver() {
         if (timer.getSeconds() == 0 || player.getScore() <= 0) {
