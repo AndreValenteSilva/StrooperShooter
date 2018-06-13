@@ -92,14 +92,6 @@ public class Player {
             X = (int) e.getX();
             Y = (int) e.getY() - 25;
             shootWeapon();
-
-            /** need to improve
-             *
-             */
-            shoot = new Picture(e.getX(), e.getY(), "/Users/codecadet/Desktop/STrooperShooter_v1/StrooperShooter/resources/laser.png");
-            shoot.draw();
-
-
         }
 
         @Override

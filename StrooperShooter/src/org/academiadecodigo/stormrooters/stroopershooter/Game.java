@@ -55,6 +55,8 @@ public class Game {
         while (gameOn) {
             Thread.sleep(500);
 
+            gameOver();
+
             moveTarget();
 
             for (GameObjects object : objects) {
@@ -63,7 +65,9 @@ public class Game {
                         player.getY() >= object.getY() && player.getY() <= object.getY() + object.getHeigth()
                         && player.getBulletNumber() > 0) {
                     object.hit();
-                    player.setScore(object.getPoints());
+                    if (object.isHitted()) {
+                        player.setScore(object.getPoints());
+                    }
                     player.reset();
                 }
             }
@@ -77,9 +81,9 @@ public class Game {
     }
 
 
-    public String gameOver(int seconds) {
-        if (seconds == 0) {
-
+    public String gameOver() {
+        if (timer.getSeconds() == 0) {
+            gameOn = false;
         }
         return "Game Over";
     }

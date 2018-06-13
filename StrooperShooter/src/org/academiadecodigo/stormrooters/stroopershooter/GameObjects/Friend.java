@@ -2,13 +2,14 @@ package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 import org.academiadecodigo.stormrooters.stroopershooter.Field.GridPosition;
 
-public class Enemy extends GameObjects {
+public class Friend extends GameObjects{
+
     private int points;
     private int fuckedUpCounter = 0;
 
-    public Enemy(GridPosition gridPosition) {
+    public Friend(GridPosition gridPosition) {
         super(gridPosition);
-        this.points = 5;
+        this.points = -5;
     }
 
     public void hit() {
