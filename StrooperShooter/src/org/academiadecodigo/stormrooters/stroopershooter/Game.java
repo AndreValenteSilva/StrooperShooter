@@ -15,7 +15,6 @@ public class Game {
     private Grid grid;
     private Weapon blasterRifle;
     private GameObjects[] objects;
-    private boolean gameInit;
     private boolean gameOn = true;
     private int gameRound;
     private int enemyCounter;
@@ -35,7 +34,7 @@ public class Game {
         this.sound[0] = new Sound("/march.wav");
         this.sound[1] = new Sound("/bastard.wav");
         this.sound[2] = new Sound("/enemyKill.wav");
-        this.sound[3] = new Sound("");
+        this.sound[3] = new Sound("/c3po.wav");
 
         sound[0].loopIndef();
         sound[0].play(true);

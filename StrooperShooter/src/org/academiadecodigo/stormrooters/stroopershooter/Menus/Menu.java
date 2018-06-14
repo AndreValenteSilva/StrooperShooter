@@ -15,16 +15,14 @@ public class Menu {
     private Picture menuBackground;
     private Picture instructions;
     private Picture gameOver;
-
+    private MenuMouse menu;
 
 
     public Menu() {
-        new MenuMouse();
+        this.menu = new MenuMouse();
         this.instructions = new Picture(0, 0, "gameover.png");
         this.menuBackground = new Picture(0, 0, "menuInitial.jpg");
         this.gameOver = new Picture(0, 0, "gameover.png");
-
-
     }
 
     public void menuOption(Game game) throws InterruptedException {
