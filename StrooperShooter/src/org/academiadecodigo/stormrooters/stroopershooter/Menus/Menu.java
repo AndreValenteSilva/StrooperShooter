@@ -1,6 +1,5 @@
 package org.academiadecodigo.stormrooters.stroopershooter.Menus;
 
-import com.sun.tools.javah.Util;
 import org.academiadecodigo.simplegraphics.mouse.Mouse;
 import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.simplegraphics.mouse.MouseEventType;
@@ -16,6 +15,7 @@ public class Menu {
     private Picture menuBackground;
     private Picture instructions;
     private Picture gameOver;
+
 
 
     public Menu() {

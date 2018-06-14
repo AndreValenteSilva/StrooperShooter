@@ -9,7 +9,7 @@ public class Friend extends GameObjects{
 
     public Friend(GridPosition gridPosition) {
         super(gridPosition);
-        this.points = -5;
+        this.points = -200;
     }
 
     public void hit() {

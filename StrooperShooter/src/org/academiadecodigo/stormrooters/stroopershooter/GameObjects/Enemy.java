@@ -8,7 +8,7 @@ public class Enemy extends GameObjects {
 
     public Enemy(GridPosition gridPosition) {
         super(gridPosition);
-        this.points = 5;
+        this.points = 100;
     }
 
     public void hit() {

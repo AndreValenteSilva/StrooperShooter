@@ -3,15 +3,15 @@ package org.academiadecodigo.stormrooters.stroopershooter.GameObjects;
 
 import org.academiadecodigo.stormrooters.stroopershooter.Field.GridPosition;
 
-public class TimeBox extends GameObjects {
+public class Bonus extends GameObjects {
 
     private int points;
     private int boxArmour;
     private int hitCounter;
 
-    public TimeBox(GridPosition gridPosition) {
+    public Bonus(GridPosition gridPosition) {
         super(gridPosition);
-        this.points = 10;
+        this.points = 300;
         this.boxArmour = 2;
         this.hitCounter = 0;
     }
