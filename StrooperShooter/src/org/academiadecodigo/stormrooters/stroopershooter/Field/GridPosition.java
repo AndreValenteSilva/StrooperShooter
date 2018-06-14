@@ -47,14 +47,6 @@ public class GridPosition {
         this.row = row;
     }
 
-    public int getX() {
-        return object.getX();
-    }
-
-    public int getY() {
-        return object.getY();
-    }
-
     public int getCol() {
         return col;
     }

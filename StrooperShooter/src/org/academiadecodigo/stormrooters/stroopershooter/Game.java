@@ -25,7 +25,7 @@ public class Game {
         this.grid = new Grid(124, 78);
         this.player = new Player("Batata", sniper);
         this.objects = new GameObjects[objectsNumber];
-        this.gameRound = 0;
+        this.gameRound = 1;
     }
 
     public void menu() throws InterruptedException {
@@ -45,7 +45,7 @@ public class Game {
             if (warrior < 11) {
                 objects[i] = new Bonus(grid.makeGridPosition(2));
                 objects[i].setGrid(grid);
-            } else if (warrior > 90) {
+            } else if (warrior > 65) {
                 objects[i] = new Friend(grid.makeGridPosition(1));
                 objects[i].setGrid(grid);
             } else {
@@ -62,11 +62,9 @@ public class Game {
         timer.startCountTimer();
 
         while (gameOn) {
-            Thread.sleep(500);
+            Thread.sleep(400);
 
             gameRound();
-
-            gameOver();
 
             moveTarget();
 
@@ -84,15 +82,13 @@ public class Game {
     public void gameRound() throws InterruptedException {
         if (gameRound < 5 && timer.getSeconds() == 1) {
             gameRound++;
+            System.out.println("round: " + gameRound);
             init();
         }
-    }
-
-    public String gameOver() {
-        if (gameRound == 5 && timer.getSeconds() == 0 || player.getScore() < 0) {
+        if (gameRound == 5 || player.getScore() < 0) {
             gameOn = false;
+            System.out.println("Game Over");
         }
-        return "Game Over";
     }
 
     public void checkHits() {

@@ -25,7 +25,7 @@ public class Bonus extends GameObjects {
             System.out.println("[BOX] hitted");
 
         } else {
-            getPoints();
+            //getPoints();
 
             System.out.println("[BOX] box explode");
 
