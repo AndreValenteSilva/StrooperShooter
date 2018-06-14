@@ -30,9 +30,9 @@ public class Menu {
     public void menuOption(Game game) throws InterruptedException {
 
         mainMenu();
-        Thread.sleep(2000);
+        Thread.sleep(20);
+        if (getMouseX() >= 100 && getMouseX() <= 100 && getMouseY() >= 100 && getMouseY() <= 100) {
 
-        if (getMouseX() >= 5 && getMouseX() <= 64 && getMouseY() >= 5 && getMouseY() <= 64) {
             game.init();
 
         }
