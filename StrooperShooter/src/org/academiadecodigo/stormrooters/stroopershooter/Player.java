@@ -20,6 +20,7 @@ public class Player {
     private int Y;
     private WeaponControl weaponControl;
     private ReloadControl reloadControl;
+    private Sound blaster;
 
     public Player(String name, Weapon weapon) {
 
@@ -27,12 +28,14 @@ public class Player {
         this.sniper = weapon;
         this.weaponControl = new WeaponControl();
         this.reloadControl = new ReloadControl();
+        this.blaster = new Sound("/blaster.wav");
     }
 
     public void shootWeapon() {
 
         if (sniper.getBulletNumber() > 0) {
             sniper.shoot();
+            blaster.play(true);
         } else {
             System.out.println("NO MORE BULLETS!!");
         }

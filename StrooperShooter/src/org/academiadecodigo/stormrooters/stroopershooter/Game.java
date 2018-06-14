@@ -22,14 +22,18 @@ public class Game {
     private int friendCounter;
     private int bonusCounter;;
     private Menu menu = new Menu();
+    private Sound sound;
 
 
     public Game(int objectsNumber) {
+
+        this.sound = new Sound("/march.wav");
         this.sniper = new Weapon();
         this.grid = new Grid(124, 78);
         this.player = new Player("Batata", sniper);
         this.objects = new GameObjects[objectsNumber];
         this.gameRound = 1;
+
     }
 
     public void menu() throws InterruptedException {
@@ -40,6 +44,9 @@ public class Game {
 
         menu.exitMainMenu();
         grid.init();
+
+        sound.loopIndef();
+        sound.play(true);
 
         for (int i = 0; i < objects.length; i++) {
 
@@ -65,6 +72,9 @@ public class Game {
         timer.startCountTimer();
 
         while (gameOn) {
+
+
+
             Thread.sleep(500);
 
             gameRound();

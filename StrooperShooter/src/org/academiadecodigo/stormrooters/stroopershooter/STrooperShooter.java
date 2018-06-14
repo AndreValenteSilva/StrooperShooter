@@ -6,7 +6,9 @@ public class STrooperShooter {
 
        Game strooperShooter = new Game(20);
 
-        strooperShooter.menu();
+       strooperShooter.init();
+       strooperShooter.menu();
+
 
 
     }
