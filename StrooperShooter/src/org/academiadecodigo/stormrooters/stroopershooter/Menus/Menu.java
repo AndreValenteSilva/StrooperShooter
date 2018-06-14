@@ -5,6 +5,7 @@ import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.simplegraphics.mouse.MouseEventType;
 import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.stormrooters.stroopershooter.Game;
 
 public class Menu {
 
@@ -19,18 +20,22 @@ public class Menu {
 
     public Menu() {
         new MenuMouse();
-        this.instructions = new Picture(0,0);
-        this.menuBackground = new Picture(0,0);
-        this.gameOver = new Picture(0,0);
+        this.instructions = new Picture(0, 0, "gameover.png");
+        this.menuBackground = new Picture(0, 0, "menuInitial.jpg");
+        this.gameOver = new Picture(0, 0, "gameover.png");
 
 
     }
 
-    public void menuOption(){
+    public void menuOption(Game game) throws InterruptedException {
 
-        //if (getMouseX() >=  && getMouseX() <=  && getMouseY() >=  && getMouseY() <= ) {
+        mainMenu();
+        Thread.sleep(20);
+        if (getMouseX() >= 100 && getMouseX() <= 100 && getMouseY() >= 100 && getMouseY() <= 100) {
 
-        //}
+            game.init();
+
+        }
     }
 
     private int getMouseX() {
@@ -44,6 +49,10 @@ public class Menu {
 
     public void mainMenu() {
         menuBackground.draw();
+    }
+
+    public void exitMainMenu() {
+        menuBackground.delete();
     }
 
 

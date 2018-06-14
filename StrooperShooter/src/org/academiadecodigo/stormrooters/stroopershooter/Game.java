@@ -21,6 +21,7 @@ public class Game {
     private int enemyCounter;
     private int friendCounter;
     private int bonusCounter;;
+    private Menu menu = new Menu();
 
 
     public Game(int objectsNumber) {
@@ -32,13 +33,12 @@ public class Game {
     }
 
     public void menu() throws InterruptedException {
-        Menu menu = new Menu();
-        menu.menuOption();
-        init();
+        menu.menuOption(this);
     }
 
     public void init() throws InterruptedException {
 
+        menu.exitMainMenu();
         grid.init();
 
         for (int i = 0; i < objects.length; i++) {
@@ -61,11 +61,11 @@ public class Game {
 
     public void start() throws InterruptedException {
 
-        timer = new CountDownTimer(15);
+        timer = new CountDownTimer(30);
         timer.startCountTimer();
 
         while (gameOn) {
-            Thread.sleep(400);
+            Thread.sleep(500);
 
             gameRound();
 
