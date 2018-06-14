@@ -18,6 +18,9 @@ public class Game {
     private boolean gameInit;
     private boolean gameOn = true;
     private int gameRound;
+    private int enemyCounter;
+    private int friendCounter;
+    private int bonusCounter;;
 
 
     public Game(int objectsNumber) {
@@ -87,7 +90,9 @@ public class Game {
         }
         if (gameRound == 5 || player.getScore() < 0) {
             gameOn = false;
+
             System.out.println("Game Over");
+            System.out.println("Enemies: " + enemyCounter + "; friends: " + friendCounter + "; bonus: " + bonusCounter);
         }
     }
 
@@ -100,6 +105,13 @@ public class Game {
                 object.hit();
                 if (object.isHitted()) {
                     player.setScore(object.getPoints());
+                    if (object instanceof Enemy) {
+                        enemyCounter++;
+                    } else if (object instanceof Friend) {
+                        friendCounter++;
+                    } else {
+                        bonusCounter++;
+                    }
                 }
                 player.reset();
             }
