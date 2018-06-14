@@ -5,6 +5,7 @@ import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Friend;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Bonus;
+import org.academiadecodigo.stormrooters.stroopershooter.Menus.Menu;
 import org.academiadecodigo.stormrooters.stroopershooter.Timer.CountDownTimer;
 
 public class Game {
@@ -25,6 +26,12 @@ public class Game {
         this.player = new Player("Batata", sniper);
         this.objects = new GameObjects[objectsNumber];
         this.gameRound = 0;
+    }
+
+    public void menu() throws InterruptedException {
+        Menu menu = new Menu();
+        menu.menuOption();
+        init();
     }
 
     public void init() throws InterruptedException {
