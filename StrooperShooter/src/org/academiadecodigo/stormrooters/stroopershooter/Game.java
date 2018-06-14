@@ -4,7 +4,7 @@ import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Friend;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
-import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.TimeBox;
+import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Bonus;
 import org.academiadecodigo.stormrooters.stroopershooter.Timer.CountDownTimer;
 
 public class Game {
@@ -16,6 +16,7 @@ public class Game {
     private GameObjects[] objects;
     private boolean gameInit;
     private boolean gameOn = true;
+    private int gameRound;
 
 
     public Game(int objectsNumber) {
@@ -23,6 +24,7 @@ public class Game {
         this.grid = new Grid(124, 78);
         this.player = new Player("Batata", sniper);
         this.objects = new GameObjects[objectsNumber];
+        this.gameRound = 0;
     }
 
     public void init() throws InterruptedException {
@@ -30,21 +32,18 @@ public class Game {
         grid.init();
 
         for (int i = 0; i < objects.length; i++) {
-            int warrior = (int) (Math.random() * 3);
 
-            switch (warrior) {
-                case 0:
-                    objects[i] = new Enemy(grid.makeGridPosition(0));
-                    objects[i].setGrid(grid);
-                    break;
-                case 1:
-                    objects[i] = new TimeBox(grid.makeGridPosition(0));
-                    objects[i].setGrid(grid);
-                    break;
-                case 2:
-                    objects[i] = new Friend(grid.makeGridPosition(1));
-                    objects[i].setGrid(grid);
-                    break;
+            int warrior = (int) (Math.random() * 100);
+
+            if (warrior < 11) {
+                objects[i] = new Bonus(grid.makeGridPosition(2));
+                objects[i].setGrid(grid);
+            } else if (warrior > 90) {
+                objects[i] = new Friend(grid.makeGridPosition(1));
+                objects[i].setGrid(grid);
+            } else {
+                objects[i] = new Enemy(grid.makeGridPosition(0));
+                objects[i].setGrid(grid);
             }
         }
         start();
@@ -52,11 +51,13 @@ public class Game {
 
     public void start() throws InterruptedException {
 
-        timer = new CountDownTimer(30);
+        timer = new CountDownTimer(15);
         timer.startCountTimer();
 
         while (gameOn) {
             Thread.sleep(500);
+
+            gameRound();
 
             gameOver();
 
@@ -68,13 +69,20 @@ public class Game {
     }
 
     public void moveTarget() {
-            for (GameObjects c : objects) {
-                c.move();
+        for (GameObjects c : objects) {
+            c.move();
+        }
+    }
+
+    public void gameRound() throws InterruptedException {
+        if (gameRound < 5 && timer.getSeconds() == 1) {
+            gameRound++;
+            init();
         }
     }
 
     public String gameOver() {
-        if (timer.getSeconds() == 0 || player.getScore() <= 0) {
+        if (gameRound == 5 && timer.getSeconds() == 0 || player.getScore() < 0) {
             gameOn = false;
         }
         return "Game Over";

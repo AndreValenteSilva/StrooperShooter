@@ -12,7 +12,7 @@ public class GridPosition {
     private Picture object;
     private String[] warriors = {"chewie.png", "luke.png", "obi.png"};
     private String[] friendsImg = {"vader.png", "storm.png", "tasker.png"};
-    // private String[] timeBox = {"c3po.png"}; character for timeBox. Is a golden object
+    private String[] timeBox = {"c3po.png"};
 
     public GridPosition(Grid grid, int warrior) {
 
@@ -25,18 +25,18 @@ public class GridPosition {
         int x = grid.columnToX(getCol());
         int y = grid.rowToY(getRow());
 
-        int warriorImg = (int) (Math.random() * 3);
+        int randomImg = (int) (Math.random() * 3);
 
         switch (warrior) {
             case 0:
-                this.object = new Picture(x, y, warriors[warriorImg]);
+                this.object = new Picture(x, y, warriors[randomImg]);
                 break;
             case 1:
-                this.object = new Picture(x, y, friendsImg[warriorImg]);
+                this.object = new Picture(x, y, friendsImg[randomImg]);
                 break;
-            /*case 2:
+            case 2:
                 this.object = new Picture(x, y, timeBox[0]);   
-                break;*/
+                break;
         }
 
         show();

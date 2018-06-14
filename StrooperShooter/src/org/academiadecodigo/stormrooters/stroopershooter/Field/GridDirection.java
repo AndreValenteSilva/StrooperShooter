@@ -23,11 +23,9 @@ public enum GridDirection {
                 break;
             case LEFT:
                 opposite = GridDirection.RIGHT;
-                System.out.println("Left - Opposite GridDirection");
                 break;
             case RIGHT:
                 opposite = GridDirection.LEFT;
-                System.out.println("Rigth - Opposite GridDirection");
                 break;
         }
         return opposite;
