@@ -13,7 +13,7 @@ public class Game {
     private CountDownTimer timer;
     private Player player;
     private Grid grid;
-    private Weapon sniper;
+    private Weapon blasterRifle;
     private GameObjects[] objects;
     private boolean gameInit;
     private boolean gameOn = true;
@@ -22,18 +22,23 @@ public class Game {
     private int friendCounter;
     private int bonusCounter;;
     private Menu menu = new Menu();
-    private Sound sound;
-
+    private Sound[] sound;
 
     public Game(int objectsNumber) {
-
-        this.sound = new Sound("/march.wav");
-        this.sniper = new Weapon();
+        this.blasterRifle = new Weapon();
         this.grid = new Grid(124, 78);
-        this.player = new Player("Batata", sniper);
+        this.player = new Player("Batata", blasterRifle);
         this.objects = new GameObjects[objectsNumber];
         this.gameRound = 1;
 
+        this.sound = new Sound[4];
+        this.sound[0] = new Sound("/march.wav");
+        this.sound[1] = new Sound("/bastard.wav");
+        this.sound[2] = new Sound("/enemyKill.wav");
+        this.sound[3] = new Sound("");
+
+        sound[0].loopIndef();
+        sound[0].play(true);
     }
 
     public void menu() throws InterruptedException {
@@ -41,15 +46,10 @@ public class Game {
     }
 
     public void init() throws InterruptedException {
-
         menu.exitMainMenu();
         grid.init();
 
-        sound.loopIndef();
-        sound.play(true);
-
         for (int i = 0; i < objects.length; i++) {
-
             int warrior = (int) (Math.random() * 100);
 
             if (warrior < 11) {
@@ -67,13 +67,10 @@ public class Game {
     }
 
     public void start() throws InterruptedException {
-
         timer = new CountDownTimer(30);
         timer.startCountTimer();
 
         while (gameOn) {
-
-
 
             Thread.sleep(500);
 
@@ -82,7 +79,6 @@ public class Game {
             moveTarget();
 
             checkHits();
-
         }
     }
 
@@ -93,16 +89,14 @@ public class Game {
     }
 
     public void gameRound() throws InterruptedException {
+        if (gameRound == 5 || player.getScore() < 0) {
+            gameOn = false;
+            System.out.println("Enemies: " + enemyCounter + "; friends: " + friendCounter + "; bonus: " + bonusCounter);
+        }
         if (gameRound < 5 && timer.getSeconds() == 1) {
             gameRound++;
             System.out.println("round: " + gameRound);
             init();
-        }
-        if (gameRound == 5 || player.getScore() < 0) {
-            gameOn = false;
-
-            System.out.println("Game Over");
-            System.out.println("Enemies: " + enemyCounter + "; friends: " + friendCounter + "; bonus: " + bonusCounter);
         }
     }
 
@@ -116,10 +110,13 @@ public class Game {
                 if (object.isHitted()) {
                     player.setScore(object.getPoints());
                     if (object instanceof Enemy) {
+                        sound[2].play(true);
                         enemyCounter++;
                     } else if (object instanceof Friend) {
+                        sound[1].play(true);
                         friendCounter++;
                     } else {
+                        sound[3].play(true);
                         bonusCounter++;
                     }
                 }
@@ -127,5 +124,4 @@ public class Game {
             }
         }
     }
-
 }

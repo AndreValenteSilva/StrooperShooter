@@ -21,7 +21,6 @@ public class Friend extends GameObjects{
     public int getPoints() {
         if (fuckedUpCounter < 1) {
             fuckedUpCounter++;
-            System.out.println("You bastard!");
             return this.points;
         }
         return 0;

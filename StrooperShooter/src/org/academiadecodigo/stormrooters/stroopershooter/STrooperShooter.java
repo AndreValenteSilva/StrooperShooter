@@ -9,7 +9,5 @@ public class STrooperShooter {
        strooperShooter.init();
        strooperShooter.menu();
 
-
-
     }
 }

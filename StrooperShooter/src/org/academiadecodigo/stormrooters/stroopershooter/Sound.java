@@ -14,27 +14,11 @@ public class Sound {
         initClip(path);
     }
 
-    /**
-     * Plays the clip from the point it was stopped or from start if passed with the fromStart argument false or true
-     *
-     * @param fromStart should be true if want to replay the sound from the start or false otherwise
-     */
     public void play(boolean fromStart) {
-
         if (fromStart) {
             clip.setFramePosition(0);
         }
         clip.start();
-    }
-
-    public void stop() {
-
-        clip.stop();
-    }
-
-    public void close() {
-
-        clip.close();
     }
 
     public int getLength() {
@@ -51,11 +35,9 @@ public class Sound {
     }
 
     public void reOpen() {
-
         AudioInputStream inputStream = null;
 
         try {
-
             inputStream = AudioSystem.getAudioInputStream(soundURL);
             clip.open(inputStream);
 
@@ -65,18 +47,15 @@ public class Sound {
     }
 
     private void initClip(String path) {
-
         soundURL = Sound.class.getResource(path); //if loading from jar
         AudioInputStream inputStream = null;
 
         try {
-
             if (soundURL == null) {
                 path = path.substring(1);
                 File file = new File(path);
                 soundURL = file.toURI().toURL(); //if executing on intellij
             }
-
             inputStream = AudioSystem.getAudioInputStream(soundURL);
             clip = AudioSystem.getClip();
             clip.open(inputStream);
