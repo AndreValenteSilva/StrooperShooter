@@ -17,6 +17,7 @@ public class Game {
     private GameObjects[] objects;
     private boolean gameInit;
     private boolean gameOn = true;
+    private Menu menu = new Menu();
 
 
     public Game(int objectsNumber) {
@@ -27,13 +28,12 @@ public class Game {
     }
 
     public void menu() throws InterruptedException {
-        Menu menu = new Menu();
-        menu.menuOption();
-        init();
+        menu.menuOption(this);
     }
 
     public void init() throws InterruptedException {
 
+        menu.exitMainMenu();
         grid.init();
 
         for (int i = 0; i < objects.length; i++) {
@@ -81,7 +81,7 @@ public class Game {
     }
 
     public String gameOver() {
-        if (timer.getSeconds() == 0 || player.getScore() <= 0) {
+        if (timer.getSeconds() == 0 || player.getScore() < 0) {
             gameOn = false;
         }
         return "Game Over";
