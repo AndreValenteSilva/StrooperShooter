@@ -1,6 +1,7 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
-import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Friend;
@@ -16,6 +17,9 @@ public class Game {
     private Grid grid;
     private Weapon sniper;
     private GameObjects[] objects;
+    private Text scoreDisplay;
+    private Text clockDisplay;
+    private Text bulletsDisplay;
     private boolean gameInit;
     private boolean gameOn = true;
     private int gameRound;
@@ -59,6 +63,9 @@ public class Game {
             }
         }
         player.drawAim();
+        scoreRepresentation(player.getScore());
+        bulletsRepresentation(player.getBulletNumber());
+
         start();
     }
 
@@ -67,28 +74,38 @@ public class Game {
         timer = new CountDownTimer(30);
         timer.startCountTimer();
 
+        clockRepresentation(timer.getSeconds());
+
         while (gameOn) {
+
+            updateScore(player.getScore());
+            updateClock(timer.getSeconds());
+            updateBullets(player.getBulletNumber());
+
             Thread.sleep(500);
 
             gameRound();
 
             moveTarget();
 
+            drawText();
+
             checkHits();
 
         }
     }
 
-    public void moveTarget() {
+    private void moveTarget() {
         for (GameObjects c : objects) {
             c.move();
         }
     }
 
-    public void gameRound() throws InterruptedException {
+    private void gameRound() throws InterruptedException {
         if (gameRound < 5 && timer.getSeconds() == 1) {
             gameRound++;
             System.out.println("round: " + gameRound);
+            player.deleteAim();
             init();
         }
         if (gameRound == 5 || player.getScore() < 0) {
@@ -99,7 +116,7 @@ public class Game {
         }
     }
 
-    public void checkHits() {
+    private void checkHits() {
         for (GameObjects object : objects) {
 
             if (player.getX() >= object.getX() && player.getX() <= object.getX() + object.getWidth() &&
@@ -119,5 +136,41 @@ public class Game {
                 player.reset();
             }
         }
+    }
+
+    private void scoreRepresentation(Integer score) {
+        scoreDisplay = new Text(400, 700, score.toString());
+        scoreDisplay.setColor(Color.WHITE);
+        scoreDisplay.grow(30, 50);
+    }
+
+    private void clockRepresentation(Integer clockScreen) {
+        clockDisplay = new Text(600, 700, clockScreen.toString());
+        clockDisplay.setColor(Color.WHITE);
+        clockDisplay.grow(100, 70);
+    }
+
+    private void bulletsRepresentation(Integer bullets) {
+        bulletsDisplay = new Text(1100, 700, bullets.toString());
+        bulletsDisplay.setColor(Color.WHITE);
+        bulletsDisplay.grow(30, 50);
+    }
+
+    private void drawText(){
+        scoreDisplay.draw();
+        clockDisplay.draw();
+        bulletsDisplay.draw();
+    }
+
+    private void updateScore(Integer newScore){
+        scoreDisplay.setText(newScore.toString());
+    }
+
+    private void updateClock(Integer clockScreen) {
+        clockDisplay.setText(clockScreen.toString());
+    }
+
+    private void updateBullets(Integer bullets) {
+        bulletsDisplay.setText(bullets.toString());
     }
 }
