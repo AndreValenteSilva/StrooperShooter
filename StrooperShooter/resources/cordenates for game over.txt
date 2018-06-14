@@ -1,0 +1,17 @@
+Play Again
+x initial 229
+x end 993
+y initial 460
+y end 537
+
+Return button to menu
+x initial 1011 
+x end 1227
+y initial 646
+y end 762
+
+Return button in rules
+x initial 1163
+x end 1228
+y initial 644
+y end 708
