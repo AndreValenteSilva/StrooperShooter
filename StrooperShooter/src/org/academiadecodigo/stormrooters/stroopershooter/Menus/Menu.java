@@ -9,22 +9,17 @@ import org.academiadecodigo.stormrooters.stroopershooter.Game;
 
 public class Menu {
 
-
     private int mouseX;
     private int mouseY;
     private Picture menuBackground;
     private Picture instructions;
     private Picture gameOver;
 
-
-
     public Menu() {
         new MenuMouse();
         this.instructions = new Picture(0, 0, "gameover.png");
         this.menuBackground = new Picture(0, 0, "menuInitial.jpg");
         this.gameOver = new Picture(0, 0, "gameover.png");
-
-
     }
 
     public void menuOption(Game game) throws InterruptedException {
@@ -34,7 +29,6 @@ public class Menu {
         if (getMouseX() >= 100 && getMouseX() <= 100 && getMouseY() >= 100 && getMouseY() <= 100) {
 
             game.init();
-
         }
     }
 
@@ -46,7 +40,6 @@ public class Menu {
         return mouseY;
     }
 
-
     public void mainMenu() {
         menuBackground.draw();
     }
@@ -55,7 +48,6 @@ public class Menu {
         menuBackground.delete();
     }
 
-
     public void instructions() {
         instructions.draw();
     }
@@ -63,7 +55,6 @@ public class Menu {
     public void gameOver() {
         gameOver.draw();
     }
-
 
     private class MenuMouse implements MouseHandler {
         private Mouse mouse;
@@ -87,6 +78,4 @@ public class Menu {
         public void mouseMoved(MouseEvent e) {
         }
     }
-
-
 }

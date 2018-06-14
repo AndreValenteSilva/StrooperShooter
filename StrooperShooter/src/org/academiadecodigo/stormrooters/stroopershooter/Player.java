@@ -13,24 +13,22 @@ import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects
 
 public class Player {
 
-    private String name;
     private int score;
     private Weapon sniper;
     private int X;
     private int Y;
+    Picture aim;
     private WeaponControl weaponControl;
     private ReloadControl reloadControl;
 
-    public Player(String name, Weapon weapon) {
-
-        this.name = name;
+    public Player(Weapon weapon) {
         this.sniper = weapon;
         this.weaponControl = new WeaponControl();
         this.reloadControl = new ReloadControl();
+        this.aim = new Picture(0, 0, "finalCrosshair.png");
     }
 
     public void shootWeapon() {
-
         if (sniper.getBulletNumber() > 0) {
             sniper.shoot();
         } else {
@@ -39,9 +37,11 @@ public class Player {
     }
 
     public void reload() {
-
         sniper.reload();
+    }
 
+    public void drawAim() {
+        aim.draw();
     }
 
     public int getX() {
@@ -76,20 +76,18 @@ public class Player {
         private Mouse handler;
 
         public WeaponControl() {
-
             this.handler = new Mouse(this);
             addEventListener();
 
         }
 
         public void addEventListener() {
-
             handler.addEventListener(MouseEventType.MOUSE_CLICKED);
+            handler.addEventListener(MouseEventType.MOUSE_MOVED);
         }
 
         @Override
         public void mouseClicked(MouseEvent e) {
-
             X = (int) e.getX();
             Y = (int) e.getY() - 25;
             shootWeapon();
@@ -97,6 +95,10 @@ public class Player {
 
         @Override
         public void mouseMoved(MouseEvent e) {
+            int x = aim.getX() + 44;
+            int y = aim.getY() + 90;
+
+            aim.translate(e.getX() - x, e.getY() - y);
         }
     }
 

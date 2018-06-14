@@ -1,5 +1,6 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Friend;
@@ -20,25 +21,26 @@ public class Game {
     private int gameRound;
     private int enemyCounter;
     private int friendCounter;
-    private int bonusCounter;;
+    private int bonusCounter;
     private Menu menu = new Menu();
 
 
     public Game(int objectsNumber) {
         this.sniper = new Weapon();
         this.grid = new Grid(124, 78);
-        this.player = new Player("Batata", sniper);
+        this.player = new Player(sniper);
         this.objects = new GameObjects[objectsNumber];
         this.gameRound = 1;
     }
 
     public void menu() throws InterruptedException {
-        menu.menuOption(this);
+        //menu.menuOption(this);
+        init();
     }
 
     public void init() throws InterruptedException {
 
-        menu.exitMainMenu();
+        //menu.exitMainMenu();
         grid.init();
 
         for (int i = 0; i < objects.length; i++) {
@@ -56,6 +58,7 @@ public class Game {
                 objects[i].setGrid(grid);
             }
         }
+        player.drawAim();
         start();
     }
 
@@ -117,5 +120,4 @@ public class Game {
             }
         }
     }
-
 }
