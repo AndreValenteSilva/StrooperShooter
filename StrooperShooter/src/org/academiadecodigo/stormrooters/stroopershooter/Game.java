@@ -28,6 +28,7 @@ public class Game {
     private Sound[] sound;
     private Picture gameOver;
     private Picture rules;
+    private Picture menu;
 
     public Game(int objectsNumber) {
         this.blasterRifle = new Weapon();
@@ -35,8 +36,9 @@ public class Game {
         this.player = new Player(blasterRifle);
         this.objects = new GameObjects[objectsNumber];
         this.gameRound = 1;
-        this.gameOver = new Picture(0,0,"gameover.png");
-        this.rules = new Picture(0,0,"rules.png");
+        this.gameOver = new Picture(8, 8, "gameover.png");
+        this.rules = new Picture(0, 0, "rules.png");
+        this.menu = new Picture(0, 0, "menuInitial.jpg");
 
         this.sound = new Sound[4];
         this.sound[0] = new Sound("/march.wav");
@@ -49,12 +51,15 @@ public class Game {
     }
 
     public void menu() throws InterruptedException {
+        menu.draw();
+        Thread.sleep(8000);
         rules.draw();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         init();
     }
 
     public void init() throws InterruptedException {
+        gameOver.delete();
         grid.init();
 
         for (int i = 0; i < objects.length; i++) {
@@ -108,10 +113,12 @@ public class Game {
         }
     }
 
-    public void gameRound() throws InterruptedException {
+    private void gameRound() throws InterruptedException {
         if (gameRound == 6 || player.getScore() < 0) {
             gameOn = false;
             gameOver.draw();
+            Thread.sleep(15000);
+            System.exit(0);
             System.out.println("Enemies: " + enemyCounter + "; friends: " + friendCounter + "; bonus: " + bonusCounter);
         }
         if (gameRound <= 5 && timer.getSeconds() == 0) {
@@ -165,13 +172,13 @@ public class Game {
         bulletsDisplay.grow(60, 20);
     }
 
-    private void drawText(){
+    private void drawText() {
         scoreDisplay.draw();
         clockDisplay.draw();
         bulletsDisplay.draw();
     }
 
-    private void updateScore(Integer newScore){
+    private void updateScore(Integer newScore) {
         scoreDisplay.setText(newScore.toString());
     }
 
