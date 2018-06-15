@@ -2,12 +2,12 @@ package org.academiadecodigo.stormrooters.stroopershooter;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Friend;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Bonus;
-import org.academiadecodigo.stormrooters.stroopershooter.Menus.Menu;
 import org.academiadecodigo.stormrooters.stroopershooter.Timer.CountDownTimer;
 
 public class Game {
@@ -15,40 +15,49 @@ public class Game {
     private CountDownTimer timer;
     private Player player;
     private Grid grid;
-    private Weapon sniper;
+    private Weapon blasterRifle;
     private GameObjects[] objects;
     private Text scoreDisplay;
     private Text clockDisplay;
     private Text bulletsDisplay;
-    private boolean gameInit;
     private boolean gameOn = true;
     private int gameRound;
     private int enemyCounter;
     private int friendCounter;
     private int bonusCounter;
-    private Menu menu = new Menu();
-
+    private Sound[] sound;
+    private Picture gameOver;
+    private Picture rules;
 
     public Game(int objectsNumber) {
-        this.sniper = new Weapon();
+        this.blasterRifle = new Weapon();
         this.grid = new Grid(124, 78);
-        this.player = new Player(sniper);
+        this.player = new Player(blasterRifle);
         this.objects = new GameObjects[objectsNumber];
         this.gameRound = 1;
+        this.gameOver = new Picture(0,0,"gameover.png");
+        this.rules = new Picture(0,0,"rules.png");
+
+        this.sound = new Sound[4];
+        this.sound[0] = new Sound("/march.wav");
+        this.sound[1] = new Sound("/bastard.wav");
+        this.sound[2] = new Sound("/enemyKill.wav");
+        this.sound[3] = new Sound("/c3po.wav");
+
+        sound[0].loopIndef();
+        sound[0].play(true);
     }
 
     public void menu() throws InterruptedException {
-        //menu.menuOption(this);
+        rules.draw();
+        Thread.sleep(5000);
         init();
     }
 
     public void init() throws InterruptedException {
-
-        //menu.exitMainMenu();
         grid.init();
 
         for (int i = 0; i < objects.length; i++) {
-
             int warrior = (int) (Math.random() * 100);
 
             if (warrior < 11) {
@@ -70,8 +79,7 @@ public class Game {
     }
 
     public void start() throws InterruptedException {
-
-        timer = new CountDownTimer(30);
+        timer = new CountDownTimer(10);
         timer.startCountTimer();
 
         clockRepresentation(timer.getSeconds());
@@ -91,7 +99,6 @@ public class Game {
             drawText();
 
             checkHits();
-
         }
     }
 
@@ -101,18 +108,17 @@ public class Game {
         }
     }
 
-    private void gameRound() throws InterruptedException {
-        if (gameRound < 5 && timer.getSeconds() == 1) {
+    public void gameRound() throws InterruptedException {
+        if (gameRound == 6 || player.getScore() < 0) {
+            gameOn = false;
+            gameOver.draw();
+            System.out.println("Enemies: " + enemyCounter + "; friends: " + friendCounter + "; bonus: " + bonusCounter);
+        }
+        if (gameRound <= 5 && timer.getSeconds() == 0) {
             gameRound++;
             System.out.println("round: " + gameRound);
             player.deleteAim();
             init();
-        }
-        if (gameRound == 5 || player.getScore() < 0) {
-            gameOn = false;
-
-            System.out.println("Game Over");
-            System.out.println("Enemies: " + enemyCounter + "; friends: " + friendCounter + "; bonus: " + bonusCounter);
         }
     }
 
@@ -126,10 +132,13 @@ public class Game {
                 if (object.isHitted()) {
                     player.setScore(object.getPoints());
                     if (object instanceof Enemy) {
+                        sound[2].play(true);
                         enemyCounter++;
                     } else if (object instanceof Friend) {
+                        sound[1].play(true);
                         friendCounter++;
                     } else {
+                        sound[3].play(true);
                         bonusCounter++;
                     }
                 }

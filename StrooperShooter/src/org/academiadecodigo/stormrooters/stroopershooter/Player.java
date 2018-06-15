@@ -21,20 +21,25 @@ public class Player {
     Picture aim;
     private WeaponControl weaponControl;
     private ReloadControl reloadControl;
+    private Sound[] sound;
 
 
     public Player(Weapon weapon) {
         this.sniper = weapon;
         this.weaponControl = new WeaponControl();
         this.reloadControl = new ReloadControl();
+        this.sound = new Sound[2];
+        sound[0] = new Sound("/blaster.wav");
+        sound[1] = new Sound("/nobullets.wav");
         this.aim = new Picture(2, 2, "finalCrosshair.png");
     }
 
     public void shootWeapon() {
         if (sniper.getBulletNumber() > 0) {
             sniper.shoot();
+            sound[0].play(true);
         } else {
-            System.out.println("NO MORE BULLETS!!");
+            sound[1].play(true);
         }
     }
 
