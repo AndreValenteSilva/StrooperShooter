@@ -28,6 +28,7 @@ public class Game {
     private Sound[] sound;
     private Picture gameOver;
     private Picture rules;
+    private Picture menu;
 
     public Game(int objectsNumber) {
         this.blasterRifle = new Weapon();
@@ -37,6 +38,7 @@ public class Game {
         this.gameRound = 1;
         this.gameOver = new Picture(0,0,"resources/gameover.png");
         this.rules = new Picture(0,0,"resources/rules.png");
+
 
         this.sound = new Sound[4];
         this.sound[0] = new Sound("/resources/march.wav");
@@ -49,12 +51,15 @@ public class Game {
     }
 
     public void menu() throws InterruptedException {
+        menu.draw();
+        Thread.sleep(8000);
         rules.draw();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         init();
     }
 
     public void init() throws InterruptedException {
+        gameOver.delete();
         grid.init();
 
         for (int i = 0; i < objects.length; i++) {
@@ -108,10 +113,12 @@ public class Game {
         }
     }
 
-    public void gameRound() throws InterruptedException {
+    private void gameRound() throws InterruptedException {
         if (gameRound == 6 || player.getScore() < 0) {
             gameOn = false;
             gameOver.draw();
+            Thread.sleep(15000);
+            System.exit(0);
             System.out.println("Enemies: " + enemyCounter + "; friends: " + friendCounter + "; bonus: " + bonusCounter);
         }
         if (gameRound <= 5 && timer.getSeconds() == 0) {
@@ -148,30 +155,30 @@ public class Game {
     }
 
     private void scoreRepresentation(Integer score) {
-        scoreDisplay = new Text(380, 715, score.toString());
+        scoreDisplay = new Text(350, 725, score.toString());
         scoreDisplay.setColor(Color.WHITE);
-        scoreDisplay.grow(20, 20);
+        scoreDisplay.grow(15, 30);
     }
 
     private void clockRepresentation(Integer clockScreen) {
-        clockDisplay = new Text(630, 710, clockScreen.toString());
+        clockDisplay = new Text(630, 720, clockScreen.toString());
         clockDisplay.setColor(Color.WHITE);
-        clockDisplay.grow(20, 20);
+        clockDisplay.grow(45, 33);
     }
 
     private void bulletsRepresentation(Integer bullets) {
-        bulletsDisplay = new Text(1150, 710, bullets.toString());
+        bulletsDisplay = new Text(1150, 725, bullets.toString() + " \n BULLETS");
         bulletsDisplay.setColor(Color.WHITE);
-        bulletsDisplay.grow(20, 20);
+        bulletsDisplay.grow(60, 20);
     }
 
-    private void drawText(){
+    private void drawText() {
         scoreDisplay.draw();
         clockDisplay.draw();
         bulletsDisplay.draw();
     }
 
-    private void updateScore(Integer newScore){
+    private void updateScore(Integer newScore) {
         scoreDisplay.setText(newScore.toString());
     }
 
@@ -180,6 +187,6 @@ public class Game {
     }
 
     private void updateBullets(Integer bullets) {
-        bulletsDisplay.setText(bullets.toString());
+        bulletsDisplay.setText(bullets.toString() + " \nBULLETS");
     }
 }

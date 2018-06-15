@@ -9,8 +9,6 @@ import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.simplegraphics.mouse.MouseEventType;
 import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
-import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 
 public class Player {
 
@@ -22,7 +20,6 @@ public class Player {
     private WeaponControl weaponControl;
     private ReloadControl reloadControl;
     private Sound[] sound;
-
 
     public Player(Weapon weapon) {
         this.sniper = weapon;
@@ -105,15 +102,14 @@ public class Player {
 
         @Override
         public void mouseMoved(MouseEvent e) {
-            int x = aim.getX() + 44;
-            int y = aim.getY() + 90;
+            int x = aim.getX() + 20;
+            int y = aim.getY() + 46;
 
             if (x > 0 && x < 1239 && y > 0 && y < 770) {
                 aim.translate(e.getX() - x, e.getY() - y);
-                System.out.println(x + " " + y);
             } else {
-                x = -50;
-                y = -50;
+                x = -10;
+                y = -10;
                 aim.translate(x, y);
             }
         }
