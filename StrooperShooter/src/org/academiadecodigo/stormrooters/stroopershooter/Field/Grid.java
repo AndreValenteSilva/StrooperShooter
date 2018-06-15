@@ -11,7 +11,6 @@ public class Grid {
     private int rows;
     public static final int PADDING = 10;
     public static final int CELLSIZE = 10;
-    //private Rectangle grid;
     private Picture grid;
 
     public Grid(int cols, int rows) {
@@ -20,9 +19,7 @@ public class Grid {
     }
 
     public void init() {
-
-        //this.grid = new Rectangle(PADDING, PADDING, cols * CELLSIZE, rows * CELLSIZE);
-        this.grid = new Picture(PADDING, PADDING,"field.png");
+        this.grid = new Picture(PADDING, PADDING, "field.png");
         this.grid.draw();
     }
 

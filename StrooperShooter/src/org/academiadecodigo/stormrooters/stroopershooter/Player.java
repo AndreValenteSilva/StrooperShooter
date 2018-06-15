@@ -9,32 +9,32 @@ import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.simplegraphics.mouse.MouseEventType;
 import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 
 public class Player {
 
-    private String name;
     private int score;
     private Weapon sniper;
     private int X;
     private int Y;
+    Picture aim;
     private WeaponControl weaponControl;
     private ReloadControl reloadControl;
     private Sound[] sound;
 
-    public Player(String name, Weapon weapon) {
 
-        this.name = name;
+    public Player(Weapon weapon) {
         this.sniper = weapon;
         this.weaponControl = new WeaponControl();
         this.reloadControl = new ReloadControl();
         this.sound = new Sound[2];
         sound[0] = new Sound("/blaster.wav");
         sound[1] = new Sound("/nobullets.wav");
+        this.aim = new Picture(2, 2, "finalCrosshair.png");
     }
 
     public void shootWeapon() {
-
         if (sniper.getBulletNumber() > 0) {
             sniper.shoot();
             sound[0].play(true);
@@ -44,9 +44,11 @@ public class Player {
     }
 
     public void reload() {
-
         sniper.reload();
+    }
 
+    public void drawAim() {
+        aim.draw();
     }
 
     public int getX() {
@@ -67,7 +69,6 @@ public class Player {
     }
 
     public void setScore(int points) {
-
         this.score += points;
         System.out.println("score: " + score);
     }
@@ -76,25 +77,27 @@ public class Player {
         return score;
     }
 
+    public void deleteAim() {
+        aim.delete();
+    }
+
     public class WeaponControl implements MouseHandler {
 
         private Mouse handler;
 
         public WeaponControl() {
-
             this.handler = new Mouse(this);
             addEventListener();
 
         }
 
         public void addEventListener() {
-
             handler.addEventListener(MouseEventType.MOUSE_CLICKED);
+            handler.addEventListener(MouseEventType.MOUSE_MOVED);
         }
 
         @Override
         public void mouseClicked(MouseEvent e) {
-
             X = (int) e.getX();
             Y = (int) e.getY() - 25;
             shootWeapon();
@@ -102,6 +105,17 @@ public class Player {
 
         @Override
         public void mouseMoved(MouseEvent e) {
+            int x = aim.getX() + 44;
+            int y = aim.getY() + 90;
+
+            if (x > 0 && x < 1239 && y > 0 && y < 770) {
+                aim.translate(e.getX() - x, e.getY() - y);
+                System.out.println(x + " " + y);
+            } else {
+                x = -50;
+                y = -50;
+                aim.translate(x, y);
+            }
         }
     }
 
@@ -128,7 +142,6 @@ public class Player {
 
         @Override
         public void keyReleased(KeyboardEvent e) {
-
         }
     }
 }

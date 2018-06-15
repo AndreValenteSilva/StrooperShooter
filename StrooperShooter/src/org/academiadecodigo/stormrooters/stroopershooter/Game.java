@@ -1,5 +1,7 @@
 package org.academiadecodigo.stormrooters.stroopershooter;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Friend;
@@ -15,18 +17,22 @@ public class Game {
     private Grid grid;
     private Weapon blasterRifle;
     private GameObjects[] objects;
+    private Text scoreDisplay;
+    private Text clockDisplay;
+    private Text bulletsDisplay;
+    private boolean gameInit;
     private boolean gameOn = true;
     private int gameRound;
     private int enemyCounter;
     private int friendCounter;
-    private int bonusCounter;;
+    private int bonusCounter;
     private Menu menu = new Menu();
     private Sound[] sound;
 
     public Game(int objectsNumber) {
         this.blasterRifle = new Weapon();
         this.grid = new Grid(124, 78);
-        this.player = new Player("Batata", blasterRifle);
+        this.player = new Player(blasterRifle);
         this.objects = new GameObjects[objectsNumber];
         this.gameRound = 1;
 
@@ -41,10 +47,12 @@ public class Game {
     }
 
     public void menu() throws InterruptedException {
-        menu.menuOption(this);
+        //menu.menuOption(this);
+        init();
     }
 
     public void init() throws InterruptedException {
+
         menu.exitMainMenu();
         grid.init();
 
@@ -62,6 +70,10 @@ public class Game {
                 objects[i].setGrid(grid);
             }
         }
+        player.drawAim();
+        scoreRepresentation(player.getScore());
+        bulletsRepresentation(player.getBulletNumber());
+
         start();
     }
 
@@ -69,7 +81,13 @@ public class Game {
         timer = new CountDownTimer(30);
         timer.startCountTimer();
 
+        clockRepresentation(timer.getSeconds());
+
         while (gameOn) {
+
+            updateScore(player.getScore());
+            updateClock(timer.getSeconds());
+            updateBullets(player.getBulletNumber());
 
             Thread.sleep(500);
 
@@ -77,11 +95,13 @@ public class Game {
 
             moveTarget();
 
+            drawText();
+
             checkHits();
         }
     }
 
-    public void moveTarget() {
+    private void moveTarget() {
         for (GameObjects c : objects) {
             c.move();
         }
@@ -95,11 +115,12 @@ public class Game {
         if (gameRound < 5 && timer.getSeconds() == 1) {
             gameRound++;
             System.out.println("round: " + gameRound);
+            player.deleteAim();
             init();
         }
     }
 
-    public void checkHits() {
+    private void checkHits() {
         for (GameObjects object : objects) {
 
             if (player.getX() >= object.getX() && player.getX() <= object.getX() + object.getWidth() &&
@@ -122,5 +143,41 @@ public class Game {
                 player.reset();
             }
         }
+    }
+
+    private void scoreRepresentation(Integer score) {
+        scoreDisplay = new Text(380, 715, score.toString());
+        scoreDisplay.setColor(Color.WHITE);
+        scoreDisplay.grow(20, 20);
+    }
+
+    private void clockRepresentation(Integer clockScreen) {
+        clockDisplay = new Text(630, 710, clockScreen.toString());
+        clockDisplay.setColor(Color.WHITE);
+        clockDisplay.grow(20, 20);
+    }
+
+    private void bulletsRepresentation(Integer bullets) {
+        bulletsDisplay = new Text(1150, 710, bullets.toString());
+        bulletsDisplay.setColor(Color.WHITE);
+        bulletsDisplay.grow(20, 20);
+    }
+
+    private void drawText(){
+        scoreDisplay.draw();
+        clockDisplay.draw();
+        bulletsDisplay.draw();
+    }
+
+    private void updateScore(Integer newScore){
+        scoreDisplay.setText(newScore.toString());
+    }
+
+    private void updateClock(Integer clockScreen) {
+        clockDisplay.setText(clockScreen.toString());
+    }
+
+    private void updateBullets(Integer bullets) {
+        bulletsDisplay.setText(bullets.toString());
     }
 }
