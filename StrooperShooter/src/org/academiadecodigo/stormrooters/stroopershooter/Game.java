@@ -139,21 +139,21 @@ public class Game {
     }
 
     private void scoreRepresentation(Integer score) {
-        scoreDisplay = new Text(380, 715, score.toString());
+        scoreDisplay = new Text(350, 725, score.toString());
         scoreDisplay.setColor(Color.WHITE);
-        scoreDisplay.grow(20, 20);
+        scoreDisplay.grow(15, 30);
     }
 
     private void clockRepresentation(Integer clockScreen) {
-        clockDisplay = new Text(630, 710, clockScreen.toString());
+        clockDisplay = new Text(630, 720, clockScreen.toString());
         clockDisplay.setColor(Color.WHITE);
-        clockDisplay.grow(20, 20);
+        clockDisplay.grow(45, 33);
     }
 
     private void bulletsRepresentation(Integer bullets) {
-        bulletsDisplay = new Text(1150, 710, bullets.toString());
+        bulletsDisplay = new Text(1150, 725, bullets.toString() + " \n BULLETS");
         bulletsDisplay.setColor(Color.WHITE);
-        bulletsDisplay.grow(20, 20);
+        bulletsDisplay.grow(60, 20);
     }
 
     private void drawText(){
@@ -171,6 +171,6 @@ public class Game {
     }
 
     private void updateBullets(Integer bullets) {
-        bulletsDisplay.setText(bullets.toString());
+        bulletsDisplay.setText(bullets.toString() + " \nBULLETS");
     }
 }
