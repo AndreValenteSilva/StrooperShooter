@@ -29,9 +29,9 @@ public class Player {
         this.weaponControl = new WeaponControl();
         this.reloadControl = new ReloadControl();
         this.sound = new Sound[2];
-        sound[0] = new Sound("/blaster.wav");
-        sound[1] = new Sound("/nobullets.wav");
-        this.aim = new Picture(2, 2, "finalCrosshair.png");
+        sound[0] = new Sound("/resources/blaster.wav");
+        sound[1] = new Sound("/resources/nobullets.wav");
+        this.aim = new Picture(2, 2, "resources/finalCrosshair.png");
     }
 
     public void shootWeapon() {

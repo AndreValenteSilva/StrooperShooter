@@ -35,14 +35,14 @@ public class Game {
         this.player = new Player(blasterRifle);
         this.objects = new GameObjects[objectsNumber];
         this.gameRound = 1;
-        this.gameOver = new Picture(0,0,"gameover.png");
-        this.rules = new Picture(0,0,"rules.png");
+        this.gameOver = new Picture(0,0,"resources/gameover.png");
+        this.rules = new Picture(0,0,"resources/rules.png");
 
         this.sound = new Sound[4];
-        this.sound[0] = new Sound("/march.wav");
-        this.sound[1] = new Sound("/bastard.wav");
-        this.sound[2] = new Sound("/enemyKill.wav");
-        this.sound[3] = new Sound("/c3po.wav");
+        this.sound[0] = new Sound("/resources/march.wav");
+        this.sound[1] = new Sound("/resources/bastard.wav");
+        this.sound[2] = new Sound("/resources/enemyKill.wav");
+        this.sound[3] = new Sound("/resources/c3po.wav");
 
         sound[0].loopIndef();
         sound[0].play(true);

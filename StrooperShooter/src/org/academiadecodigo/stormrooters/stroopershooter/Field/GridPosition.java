@@ -10,9 +10,9 @@ public class GridPosition {
     private int height;
     private Grid grid;
     private Picture object;
-    private String[] warriors = {"chewie.png", "luke.png", "obi.png"};
-    private String[] friendsImg = {"vader.png", "storm.png", "tasker.png"};
-    private String[] timeBox = {"c3po.png"};
+    private String[] warriors = {"resources/chewie.png", "resources/luke.png", "resources/obi.png"};
+    private String[] friendsImg = {"resources/vader.png", "resources/storm.png", "resources/tasker.png"};
+    private String[] timeBox = {"resources/c3po.png"};
 
     public GridPosition(Grid grid, int warrior) {
 

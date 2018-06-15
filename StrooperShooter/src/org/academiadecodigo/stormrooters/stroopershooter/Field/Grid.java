@@ -19,7 +19,7 @@ public class Grid {
     }
 
     public void init() {
-        this.grid = new Picture(PADDING, PADDING, "field.png");
+        this.grid = new Picture(PADDING, PADDING, "resources/field.png");
         this.grid.draw();
     }
 
