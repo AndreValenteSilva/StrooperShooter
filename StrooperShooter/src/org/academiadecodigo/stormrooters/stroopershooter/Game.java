@@ -38,6 +38,7 @@ public class Game {
         this.gameRound = 1;
         this.gameOver = new Picture(0,0,"resources/gameover.png");
         this.rules = new Picture(0,0,"resources/rules.png");
+        this.menu = new Picture(0,0, "resources/menuInitial.jpg");
 
 
         this.sound = new Sound[4];
