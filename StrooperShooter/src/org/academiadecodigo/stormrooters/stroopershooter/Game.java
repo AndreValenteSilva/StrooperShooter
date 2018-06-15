@@ -20,7 +20,6 @@ public class Game {
     private Text scoreDisplay;
     private Text clockDisplay;
     private Text bulletsDisplay;
-    private boolean gameInit;
     private boolean gameOn = true;
     private int gameRound;
     private int enemyCounter;
@@ -115,7 +114,7 @@ public class Game {
             gameOver.draw();
             System.out.println("Enemies: " + enemyCounter + "; friends: " + friendCounter + "; bonus: " + bonusCounter);
         }
-        if (gameRound <= 5 && timer.getSeconds() == 1) {
+        if (gameRound <= 5 && timer.getSeconds() == 0) {
             gameRound++;
             System.out.println("round: " + gameRound);
             player.deleteAim();
