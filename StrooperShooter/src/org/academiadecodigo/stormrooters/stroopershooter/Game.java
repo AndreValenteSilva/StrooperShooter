@@ -2,12 +2,12 @@ package org.academiadecodigo.stormrooters.stroopershooter;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.stormrooters.stroopershooter.Field.Grid;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Enemy;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Friend;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.GameObjects;
 import org.academiadecodigo.stormrooters.stroopershooter.GameObjects.Bonus;
-import org.academiadecodigo.stormrooters.stroopershooter.Menus.Menu;
 import org.academiadecodigo.stormrooters.stroopershooter.Timer.CountDownTimer;
 
 public class Game {
@@ -26,8 +26,9 @@ public class Game {
     private int enemyCounter;
     private int friendCounter;
     private int bonusCounter;
-    private Menu menu = new Menu();
     private Sound[] sound;
+    private Picture gameOver;
+    private Picture rules;
 
     public Game(int objectsNumber) {
         this.blasterRifle = new Weapon();
@@ -35,6 +36,8 @@ public class Game {
         this.player = new Player(blasterRifle);
         this.objects = new GameObjects[objectsNumber];
         this.gameRound = 1;
+        this.gameOver = new Picture(0,0,"gameover.png");
+        this.rules = new Picture(0,0,"rules.png");
 
         this.sound = new Sound[4];
         this.sound[0] = new Sound("/march.wav");
@@ -47,13 +50,12 @@ public class Game {
     }
 
     public void menu() throws InterruptedException {
-        //menu.menuOption(this);
+        rules.draw();
+        Thread.sleep(5000);
         init();
     }
 
     public void init() throws InterruptedException {
-
-        menu.exitMainMenu();
         grid.init();
 
         for (int i = 0; i < objects.length; i++) {
@@ -78,7 +80,7 @@ public class Game {
     }
 
     public void start() throws InterruptedException {
-        timer = new CountDownTimer(30);
+        timer = new CountDownTimer(10);
         timer.startCountTimer();
 
         clockRepresentation(timer.getSeconds());
@@ -108,11 +110,12 @@ public class Game {
     }
 
     public void gameRound() throws InterruptedException {
-        if (gameRound == 5 || player.getScore() < 0) {
+        if (gameRound == 6 || player.getScore() < 0) {
             gameOn = false;
+            gameOver.draw();
             System.out.println("Enemies: " + enemyCounter + "; friends: " + friendCounter + "; bonus: " + bonusCounter);
         }
-        if (gameRound < 5 && timer.getSeconds() == 1) {
+        if (gameRound <= 5 && timer.getSeconds() == 1) {
             gameRound++;
             System.out.println("round: " + gameRound);
             player.deleteAim();
